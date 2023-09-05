@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+p{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-image: url('../src/assets/image/25097.jpg') !important;
+  background-position: center;
+  background-size: cover;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.transition{
+  transition: 0.5s;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.maincolor{
+  color: #fe9000 !important;
+}
+.faceBook-color{
+  color: #0165E1;
+}
+.whatsApp-color{
+color: #25D366;
+}
+.linkedIn-color{
+color: #0A66C2;
+}
+.github-color{
+color: #4078c0;
+}
+.insta-color{
+color: #E1306C;
+}
