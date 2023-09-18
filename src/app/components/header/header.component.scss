@@ -1,12 +1,18 @@
 section {
   overflow: hidden;
-  height: calc(100vh - 70px);
+
 
   .half-1 {
     .par-1 {
       position: relative;
       font-size: 80px;
       font-weight: 900;
+      opacity: 1;
+
+      @media (min-width: 0px) and (max-width: 500px) {
+
+        font-size: 35px !important;
+      }
 
       &:after {
         content: '';
@@ -25,7 +31,25 @@ section {
       font-weight: 900;
       white-space: nowrap;
       line-height: 70px;
-      span{
+
+      // 769
+      @media (min-width: 971px) and (max-width: 1250px) {
+        font-size: 66px !important;
+      }
+
+      @media (min-width: 500px) and (max-width: 971px) {
+        font-size: 66px !important;
+      }
+
+      @media (min-width: 0px) and (max-width: 500px) {
+
+        font-size: 35px !important;
+      }
+
+      // @media (min-width: 971px) and (max-width: 1250px) {
+      //   font-size: 80px !important;
+      // }
+      span {
         color: transparent;
         -webkit-text-stroke: 1px #000000;
         background: url(../../../assets/image/back2.png);
@@ -34,10 +58,11 @@ section {
         background-size: cover;
         animation: back 30s linear infinite;
       }
+
       @keyframes back {
-      100%{
-        background-position: 2000px 0;
-      }
+        100% {
+          background-position: 2000px 0;
+        }
       }
     }
 
@@ -46,11 +71,17 @@ section {
       font-weight: 300;
       white-space: nowrap;
 
+      @media (min-width: 300px) and (max-width: 460px) {
+        font-size: 20px !important;
+      }
+
+
     }
 
     div {
       .btn-1 {
         background-color: #df6a6a;
+        white-space: nowrap;
 
         &:hover {
           background-color: #fe9000;

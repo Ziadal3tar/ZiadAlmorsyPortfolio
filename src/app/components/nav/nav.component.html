@@ -3,14 +3,14 @@
   <div class="col-10 d-flex">
 <div class=" d-flex  justify-content-end container1">
       <ul [ngClass]="!isOpen?'mr-100':''" class="transition d-flex align-items-center justify-content-evenly divUl my-auto ">
-        <li><a href="">BLOG</a></li>
-        <li><a href="">SERVICES</a></li>
-        <li><a href="">PROJECT</a></li>
-        <li><a href="">ABOUT</a></li>
+        <li><a href="services">SERVICES</a></li>
+        <li><a href="projects">PROJECT</a></li>
+        <li><a href="about">ABOUT</a></li>
         <li><a href="contact">CONTACT</a></li>
       </ul>
     </div>
   </div>
   <div class="col-1 d-flex align-items-center justify-content-center"><i [ngClass]="!isOpen?'fa-bars':'fa-xmark'" (click)="isOpen = !isOpen" class="fa-solid  fs-3 cursor-pointer"></i></div>
 </nav>
+
 

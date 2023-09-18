@@ -1,0 +1,78 @@
+<div [ngClass]="{'d-none': !confirmRemove}" class="py-4 position-absolute w-100 h-100 bg-black bg-opacity-50 top-0 start-0 d-flex align-items-center justify-content-center row">
+  <div class=" bg-white col-md-5 col-sm-9 col-xs-11  d-flex align-items-center justify-content-center row p-3 rounded-5">
+    <p class=" text-center fs-5 fw-bold">are you sure</p>
+    <div class=" d-flex align-items-center justify-content-between col-4 mt-5">
+      <button class=" btn btn-primary" (click)="confirmRemove =false">cancel</button>
+      <button class=" btn btn-danger" (click)="deleteProject()">delete</button>
+    </div>
+  </div>
+
+</div>
+<div class=" w-100 container d-flex align-items-center justify-content-between mb-5" >
+  <p class=" fs-5 fw-bold">select project you want to update</p>
+  <div class=" w-25 d-flex align-items-center  " [ngClass]="btnRemove?'justify-content-between':'justify-content-end'">
+    <button class=" btn btn-danger" (click)="confirmRemove = true" *ngIf="btnRemove">delete</button>
+
+    <ng-multiselect-dropdown class=" w-75" [placeholder]="'Select To Update'" [settings]="updateDropdownSettings" [data]="updateDropdownList"
+      [(ngModel)]="updateSelectedItems"
+      (onSelect)="onItemSelect($event)"
+      (onDeSelect)="onDeSelect($event)"
+      >
+    </ng-multiselect-dropdown>
+  </div>
+</div>
+<section class=" container">
+  <div class="col-12 my-2">
+    <ng-multiselect-dropdown [placeholder]="'TECHNOLOGIES'" [settings]="technologiesDropdownSettings"
+      [data]="technologiesDropdownList" [(ngModel)]="technologiesSelectedItems">
+    </ng-multiselect-dropdown>
+  </div>
+
+
+  <div class="col-12 my-2">
+    <ng-multiselect-dropdown [placeholder]="'TYPES'" [settings]="typeDropdownSettings" [data]="typeDropdownList"
+      [(ngModel)]="typeSelectedItems">
+    </ng-multiselect-dropdown>
+  </div>
+
+
+  <div class="col-12 my-2">
+    <label for="iamges" class="btn bg-secColor p-2 rounded-0 w-100 rounded-2"><i
+        class="fa-solid fa-images text-white fs-4"></i></label>
+    <input type="file" class="d-none" id="iamges" (change)="upload($event)" multiple>
+
+  </div>
+
+  <div class="row">
+    <form [formGroup]='projectForm' (ngSubmit)="add(projectForm.value)">
+
+      <div class="col-12 my-2">
+        <input type="text" class=" w-100 border-bottom form-control p-2 rounded-3" [(ngModel)]="name" placeholder="NAME"
+          formControlName="name">
+      </div>
+      <div class="col-12 my-2">
+        <input type="text" class=" w-100 border-bottom form-control p-2 rounded-3" [(ngModel)]="description" placeholder="DESCRIPTION"
+          formControlName="description">
+      </div>
+      <div class="col-12 my-2">
+        <input type="text" class=" w-100 border-bottom form-control p-2 rounded-3" [(ngModel)]="link" placeholder="LINK"
+          formControlName="link">
+      </div>
+
+
+
+
+      <button type="submit" class="btn bg-mainColor text-white">{{btnText}}</button>
+
+
+    </form>
+
+
+
+
+
+
+  </div>
+
+</section>
+<app-loading *ngIf="loading"></app-loading>

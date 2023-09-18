@@ -1,0 +1,29 @@
+<section id="header">
+  <div class=" w-100 header d-flex align-items-end justify-content-center pb-5">
+    <div class="image position-absolute"></div>
+    <p class="mb-5 "><span class="home "><a class="transition text-black" href="home">home </a> <span><i
+            class="fa-solid fa-angle-right text-black"></i></span> </span> services</p>
+  </div>
+</section>
+
+<section id="services" class=" pb-3">
+  <div class="d-flex transition row" id="slider" [style.width]="services.length*width +'vw'">
+    <div class=" p-5 " [style.width]="width +'vw'" *ngFor="let item of services let x = index">
+      <div class=" border h-30 d-flex flex-column align-items-center justify-content-evenly">
+        <div class=" w-100 h-25 d-flex align-items-center justify-content-center">
+        <i [ngClass]="item.icon" class="fs-1 secColor"></i>
+        </div>
+        <div class="h-50 text-center px-3 scrollStyle">
+          <p class="fs-5">{{item.desc}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class=" w-100 d-flex align-items-center justify-content-center py-1">
+    <button class=" border-0  rounded-5 p-2 box-shadow btnSlider mx-1 transition"
+      *ngFor="let item of services let i = index" [ngClass]="{'d-none': i>services.length-3,'bg-secColor':i==margin}"
+      (click)="Margin(i)"></button>
+  </div>
+</section>
+<!-- [ngClass]="{'me5': x==0,'ms5': x+1==services.length,'mx5':x+1 != services.length&&x!=0}" -->

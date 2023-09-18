@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 @Component({
@@ -8,6 +8,7 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class HeaderComponent {
   dd = 'topright';
+  @Output() changeTap: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private _common: CommonService,private _Router:Router) {}
 
@@ -42,5 +43,9 @@ export class HeaderComponent {
   }
   toPdf(){
     window.open('https://res.cloudinary.com/dqaf8jxn5/image/upload/v1693761419/ZiadResume_bfomu1.pdf')
+  }
+  click(tap:any){
+  this.changeTap.emit(tap);
+
   }
 }

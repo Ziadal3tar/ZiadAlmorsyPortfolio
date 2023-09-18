@@ -1,0 +1,64 @@
+.header {
+  height: 60vh;
+  position: relative;
+overflow: hidden;
+width: 100%;
+  .image {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background-image: url(../../../assets/image/customer-service-faqs-illustration.jpg);
+    background-position: center;
+    background-size: cover;
+    filter: blur(4px);
+  }
+
+  p {
+    color: #cd776d;
+    font-size: 17px;
+    font-weight: 700;
+
+    span.home a {
+      cursor: pointer;
+      color: white;
+
+      &:hover {
+        color: #cd776d;
+      }
+    }
+
+    span {
+      color: white;
+    }
+  }
+}
+#services {
+  width: 100vw;
+  overflow: hidden;
+
+  // .mx5 {
+  //   margin: 0 2.5vw;
+  // }
+
+  // .me5 {
+  //   margin-right: 2.5vw;
+  // }
+
+  // .ms5 {
+  //   margin-left: 2.5vw;
+  // }
+
+  // .w-30 {
+  //   width: 50%;
+  // }
+
+  .h-30 {
+    height: 33vh !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border-radius: 10px;
+  }
+  .btnSlider{
+
+    background-color: rgba(128, 128, 128, 0.306);
+  }
+}

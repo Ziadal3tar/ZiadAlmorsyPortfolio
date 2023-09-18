@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
   isOpen:Boolean = false
+  tap:any='header'
+  constructor(private router : Router){}
+  ngOnInit(): void {
+
+
+
+  }
 }

@@ -1,0 +1,21 @@
+.sideNav {
+  z-index: 1;
+  margin-right: 20px;
+  position: relative;
+  ul {
+    position: relative;
+    border-right: 2px solid black;
+    transition: 0.5s;
+    text-decoration: none;
+    li {
+      list-style: none;
+      border-right: 3px solid transparent;
+      transition: 0.5s;
+      cursor: pointer;
+      padding: 0px 10px;
+      &:hover {
+        border-right: 3px solid rgb(0, 0, 0);
+      }
+    }
+  }
+}
