@@ -8,17 +8,17 @@
 
 <section id="filter" class="row m-0 d-flex align-items-center justify-content-center">
   <ul id="ul" class=" col-xl-5 col-lg-6 col-md-8 col-11">
-    <li (click)="active($event,'pure')">pure js</li>
+    <li (click)="active($event,'pure javascript')">pure js</li>
     <li (click)="active($event,'angular')">angular</li>
     <li (click)="active($event,'frontend')">frontend</li>
     <li (click)="active($event,'backend')">backend</li>
     <li (click)="active($event,'all')" class="active">all</li>
   </ul>
 </section>
-
-<section id="projects" class="container row m-0 mx-auto px-5 d-flex align-items-center justify-content-evenly">
-  <div class="col-12 col-md-6 col-xl-4 px-5 project my-3 overflow-hidden position-relative" *ngFor="let x of projects let i = index " id="project{{i}}"
-    [ngClass]="{ 'unFiltered' : filter != x.type&& filter != 'all', 'filtered' : filter == x.type ||  filter == 'all'}">
+<!-- [ngClass]="{ 'unFiltered' : filter != x.type&& filter != 'all', 'filtered' : filter == x.type ||  filter == 'all'}" -->
+<section id="projects" class="container row m-0 mx-auto px-3 d-flex align-items-center justify-content-evenly">
+  <div class="col-12 col-md-6 col-xl-4 project my-3 overflow-hidden position-relative filtered" *ngFor="let x of projects let i = index " id="project{{i}}"
+    >
     <div class="col-12 transition cursor-pointer image" style="background-image: url({{x.images[0]}});"
       (click)="project = x">
     </div>
@@ -29,7 +29,7 @@
       </div>
       <p class=" text-primary cursor-pointer" (click)="details(i)">details</p>
     </div>
-     <div class="moreDetails transition">
+     <div class="scrollStyle  overflow-scroll moreDetails transition">
       <p class="fw-bolder fs-3">{{x.name}}</p>
       <p>{{x.description}}</p>
       <div>
@@ -43,12 +43,20 @@
   </div>
 
 </section>
+
+
+
 <section class="showImages vw-100 vh-100 bg-black position-fixed top-0 start-0 bg-opacity-75 p-5" *ngIf="project">
+
   <i class="fa-solid fa-xmark text-white fs-3  m-3 cursor-pointer position-absolute top-0 end-0"
    (click)="close()"></i>
   <div class=" imageDisplayed " style="background-image: url({{project.images[imageNum]}});"></div>
-  <i class="fa-solid fa-caret-right text-white fs-3  m-3 cursor-pointer position-absolute top-50 end-0 me-5"
+  <!-- <i class="fa-solid fa-caret-right text-white fs-3  m-3 cursor-pointer position-absolute top-50 end-0 me-5"
     (click)="right()"></i>
   <i class="fa-solid fa-caret-left text-white fs-3  m-3 cursor-pointer position-absolute top-50 start-0 ms-5"
-    (click)="left()"></i>
+    (click)="left()"></i> -->
+    <div class="dots w-100 d-flex align-items-center justify-content-center">
+      <button class=" border-0  rounded-5 p-2 box-shadow btnSlider mx-1 transition" [ngClass]="{'bg-mainColor': i==imageNum}"
+      *ngFor="let item of project.images let i = index" (click)="changeImg(i)"></button>
+    </div>
 </section>

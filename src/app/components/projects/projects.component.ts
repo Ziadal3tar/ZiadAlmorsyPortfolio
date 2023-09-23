@@ -14,10 +14,12 @@ export class ProjectsComponent {
   ngOnInit(): void {
     this._common.getAllProjects().subscribe((data: any) => {
       this.projects = data.project;
-      console.log(data);
+      const arrayJSON = JSON.stringify(data.project);
+      localStorage.setItem('allProjects', arrayJSON);
     });
   }
   active(data: any, name: any) {
+
     let lis: any = document.getElementById('ul')?.children;
     for (let i = 0; i < lis?.length; i++) {
       let element = lis[i];
@@ -25,11 +27,21 @@ export class ProjectsComponent {
     }
     data.target.classList.add('active');
     this.filter = name;
-    const divs: any = document.getElementById('projects')?.children;
+
+    const storedArrayJSON: any = localStorage.getItem('allProjects');
+    const storedArray = JSON.parse(storedArrayJSON);
+    if (name == 'all') {
+this.projects = storedArray
+    }else{
+      for (let i = 0; i < storedArray.length; i++) {
+        this.projects = storedArray.filter((item: any) =>
+          item.types.includes(name)
+        );
+      }
+    }
+
   }
   right() {
-    console.log(this.project.images.length);
-
     if (this.imageNum == this.project.images.length - 1) {
       this.imageNum = 0;
     } else {
@@ -44,25 +56,28 @@ export class ProjectsComponent {
     }
   }
   details(id: any) {
-
     let div: any = document.getElementById(`project${id}`);
     var translateXValue1 = '200%';
     var translateXValue2 = '0%';
     var translateXValue3 = '-200%';
 
-if (div.classList.contains('added')) {
-  (div.classList.remove('added'))
+    if (div.classList.contains('added')) {
+      div.classList.remove('added');
 
-  div.children[0].style.transform = 'translateX(' + translateXValue2 + ')';
-  div.children[2].style.transform = 'translateX(' + translateXValue3 + ')';
-}else{
-  (div.classList.add('added'))
-  div.children[0].style.transform = 'translateX(' + translateXValue1 + ')';
-  div.children[2].style.transform = 'translateX(' + translateXValue2 + ')';
-}
+      div.children[0].style.transform = 'translateX(' + translateXValue2 + ')';
+      div.children[2].style.transform = 'translateX(' + translateXValue3 + ')';
+    } else {
+      div.classList.add('added');
+      div.children[0].style.transform = 'translateX(' + translateXValue1 + ')';
+      div.children[2].style.transform = 'translateX(' + translateXValue2 + ')';
+    }
   }
-  close(){
-    this.project=''
-    this.imageNum = 0
+
+  changeImg(i: any) {
+    this.imageNum = i;
+  }
+  close() {
+    this.project = '';
+    this.imageNum = 0;
   }
 }

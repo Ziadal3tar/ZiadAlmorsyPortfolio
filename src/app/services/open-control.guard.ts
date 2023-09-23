@@ -9,7 +9,7 @@ export const openControlGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const password = route.params['password'];
 
-  return httpClient.get<boolean>(`http://localhost:3000/project/open/${password}`).pipe(
+  return httpClient.get<boolean>(`https://portfolio-1s6f0vegh-ziadal3tar.vercel.app/project/open/${password}`).pipe(
       map((response: any) => {
         if (response.open) {
           return true;

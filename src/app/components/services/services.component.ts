@@ -59,7 +59,6 @@ export class ServicesComponent {
     },
   ];
   ngOnInit(): void {
-    console.log(window.innerWidth);
     if (window.innerWidth >= 767 && window.innerWidth <= 1023) {
       this.width = 50;
     } else if (window.innerWidth <= 767) {

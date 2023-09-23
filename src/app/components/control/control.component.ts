@@ -33,8 +33,8 @@ export class ControlComponent {
   files: any[] = [];
   loading: Boolean = false;
   btnText: any = 'ADD';
-  confirmRemove:Boolean = false
-  btnRemove:Boolean = false
+  confirmRemove: Boolean = false;
+  btnRemove: Boolean = false;
   constructor(private _common: CommonService) {}
 
   ngOnInit(): void {
@@ -136,30 +136,25 @@ export class ControlComponent {
     formData.append('description', data.description);
     formData.append('link', data.link);
     if (this.updateSelectedItems.length != 0) {
-let id = this.updateSelectedItems[0].item_id
-      this._common.updateProject(formData,id).subscribe((data: any) => {
-  
-
+      let id = this.updateSelectedItems[0].item_id;
+      this._common.updateProject(formData, id).subscribe((data: any) => {
         if (data.message == 'updated') {
           this.loading = !this.loading;
-        location.reload();
-
+          location.reload();
         }
       });
-
     } else {
       this._common.addProject(formData).subscribe((data: any) => {
 
         if (data.message == 'added successfully') {
           this.loading = !this.loading;
-        location.reload();
-
+          location.reload();
         }
       });
     }
   }
   onItemSelect(data: any) {
-    this.btnRemove =true
+    this.btnRemove = true;
     this.btnText = 'UPDATE';
     this.technologiesSelectedItems = [];
     this.typeSelectedItems = [];
@@ -189,7 +184,7 @@ let id = this.updateSelectedItems[0].item_id
     }
   }
   onDeSelect(event: any) {
-    this.btnRemove = false
+    this.btnRemove = false;
 
     this.typeSelectedItems = [];
     this.technologiesSelectedItems = [];
@@ -199,11 +194,9 @@ let id = this.updateSelectedItems[0].item_id
     this.link = '';
     this.btnText = 'ADD';
   }
-  deleteProject(){
+  deleteProject() {
     this.loading = !this.loading;
-    let id = this.updateSelectedItems[0].item_id
-    console.log(id);
-
+    let id = this.updateSelectedItems[0].item_id;
     this._common.deleteProject(id).subscribe((data: any) => {
       if (data.message == 'deleted') {
         this.loading = !this.loading;

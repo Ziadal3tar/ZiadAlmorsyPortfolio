@@ -1,6 +1,6 @@
 <section id="contact">
   <div class="row h-100">
-    <form [formGroup]="senderForm" (ngSubmit)="send(senderForm.value)" class="col-lg-6 col-md-12 p-5 d-flex flex-column align-items-start justify-content-between h-100">
+    <div [formGroup]="senderForm"  class="col-lg-6 col-md-12 p-5 d-flex flex-column align-items-start justify-content-between h-100">
       <p class="text-white fs-1 fw-bold fa slideInLeft">Say Hello</p>
       <!-- <p class="text-white slideInLeft">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, sunt.</p> -->
       <input type="text" formControlName="name"
@@ -9,8 +9,8 @@
         class="border-white w-100 border-0 border-bottom bg-transparent p-3  slideInLeft" placeholder="Your Email">
       <p *ngIf="emailError" class="text-danger">{{emailError}}</p>
       <textarea name="" formControlName="message" id="" placeholder="Write your message"
-        class="border-white h-50 w-100 border-0 border-bottom bg-transparent p-3 slideInLeft"></textarea>
-      <button class="send w-50 text-black slideInLeft">SEND</button>
+        class="border-white h-75 w-100 border-0 border-bottom bg-transparent p-3 slideInLeft"></textarea>
+      <button class="send w-50 text-black slideInLeft" (click)="send(senderForm.value)">SEND</button>
       <div class=" d-flex flex-column  justify-content-between col-lg-8 col-md-7 col-12">
         <p class="my-2 text-white slideInLeft text-nowrap fa">FIND WITH ME</p>
         <div class=" d-flex align-items-center justify-content-between btns slideInLeft ">
@@ -26,7 +26,7 @@
                 class="fa-brands fa-instagram insta-color fs-4"></i></button></a>
         </div>
       </div>
-    </form>
+    </div>
     <div class="col-lg-3 col-sm-6 col-12 p-0">
       <div class="image"></div>
     </div>
