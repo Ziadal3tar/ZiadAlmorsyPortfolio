@@ -3,6 +3,11 @@ section {
 
 
   .half-1 {
+    height: 100vh;
+    @media (min-width: 0px) and (max-width: 500px) {
+
+      height: 70vh;
+    }
     .par-1 {
       position: relative;
       font-size: 80px;
