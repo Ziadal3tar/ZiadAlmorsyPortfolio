@@ -24,9 +24,7 @@ export class CommonService {
   getAllProjects():any {
     return this._http.get(`${this.baseUrl}/getAllProjects`);
   }
-  getProjects():any {
-    return this._http.get(`${this.baseUrl}/getAllProjects`);
-  }
+ 
   deleteProject(id:any):any {
     return this._http.delete(`${this.baseUrl}/deleteProject/${id}`);
   }
