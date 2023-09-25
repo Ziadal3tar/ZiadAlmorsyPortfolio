@@ -42,7 +42,7 @@ export class HeaderComponent {
     }, 3000);
   }
   toPdf(){
-    window.open('https://res.cloudinary.com/dqaf8jxn5/image/upload/v1693761419/ZiadResume_bfomu1.pdf')
+    window.open('https://res.cloudinary.com/dqaf8jxn5/image/upload/v1695650556/ZiadAlmorsyResume_tjut1j.pdf')
   }
   click(tap:any){
   this.changeTap.emit(tap);
