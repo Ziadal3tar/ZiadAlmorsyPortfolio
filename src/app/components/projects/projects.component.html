@@ -55,7 +55,7 @@
     (click)="right()"></i>
   <i class="fa-solid fa-caret-left text-white fs-3  m-3 cursor-pointer position-absolute top-50 start-0 ms-5"
     (click)="left()"></i> -->
-    <div class="dots w-100 d-flex align-items-start justify-content-center">
+    <div class="dots w-100 d-flex align-items-center justify-content-center">
       <button class=" border-0  rounded-5 p-2 box-shadow btnSlider mx-1 transition" [ngClass]="{'bg-mainColor': i==imageNum}"
       *ngFor="let item of project.images let i = index" (click)="changeImg(i)"></button>
     </div>
