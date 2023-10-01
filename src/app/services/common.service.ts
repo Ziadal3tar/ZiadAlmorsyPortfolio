@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CommonService {
-  baseUrl: any = 'https://portfolio-j06o2jhg5-ziadal3tar.vercel.app/project';
+  baseUrl: any = 'https://portfolio-be-ziadal3tar.vercel.app/project';
   // baseUrl: any = 'http://localhost:3000/project';
   constructor(private _http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class CommonService {
   getAllProjects():any {
     return this._http.get(`${this.baseUrl}/getAllProjects`);
   }
- 
+
   deleteProject(id:any):any {
     return this._http.delete(`${this.baseUrl}/deleteProject/${id}`);
   }
