@@ -27,7 +27,7 @@ export class HeaderComponent {
     setTimeout(() => {
        shkl1.classList.replace('shkl12', 'shkl1');
        shkl2.classList.replace('shkl22', 'shkl2');
-      imageP.style.marginTop = '110%';
+      imageP.style.marginTop = '160%';
       setTimeout(() => {
          shkl1.classList.replace('shkl1', 'shkl13');
         doc.style.marginLeft = '-10px';
