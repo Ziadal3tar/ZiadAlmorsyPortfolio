@@ -13,7 +13,7 @@ export class ProjectsComponent {
   constructor(private _common: CommonService) {}
   ngOnInit(): void {
     this._common.getAllProjects().subscribe((data: any) => {
-      this.projects = data.project;
+      this.projects = data.project.reverse();
       const arrayJSON = JSON.stringify(data.project);
       localStorage.setItem('allProjects', arrayJSON);
     });

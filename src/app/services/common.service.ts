@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CommonService {
-  baseUrl: any = 'https://portfolio-be-ziadal3tar.vercel.app/project';
-  // baseUrl: any = 'http://localhost:3000/project';
+  // baseUrl: any = 'https://portfolio-be-ziadal3tar.vercel.app/project';
+  baseUrl: any = 'http://localhost:3000/project';
   constructor(private _http: HttpClient) {}
 
   open(password: any) {
