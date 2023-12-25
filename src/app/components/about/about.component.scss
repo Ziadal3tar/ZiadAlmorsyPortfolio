@@ -11,6 +11,15 @@ overflow: hidden;
       font-size: 60px!important;
 
     }
+    @media (min-width: 0px) and (max-width: 400px) {
+      font-size: 35px!important;
+      &:after {
+        width: 0px !important;
+
+      }
+    }
+
+
     &:after {
       content: '';
       width: 350px;
@@ -25,6 +34,11 @@ overflow: hidden;
   #ani {
     transition: 1s;
     overflow: hidden;
+    p{
+    @media (min-width: 0px) and (max-width: 400px) {
+      font-size: 14px !important;
+    }}
+
   }
 
   .title {
