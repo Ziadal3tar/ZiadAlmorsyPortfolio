@@ -79,5 +79,38 @@ this.projects = storedArray
   close() {
     this.project = '';
     this.imageNum = 0;
+    let nav: HTMLElement | any = document.getElementById('nav');
+    nav.style.opacity = '1';
   }
-}
+  hideNav(){
+
+    let nav: HTMLElement | any = document.getElementById('nav');
+    nav.style.opacity = '0';
+  }
+
+  showPrev(){
+console.log('fd');
+
+// this.imageNum + 1
+      }
+
+
+
+
+
+
+      showNext(){
+console.log('fd1');
+
+        // if (this.selectedIndex>0) {
+        //   this.selectedIndex = i-1
+        //   this._image.updateIndex(this.selectedIndex)
+        //   this.closeTriller.emit('close')
+
+        //   }
+      }
+
+
+    }
+
+

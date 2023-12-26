@@ -121,11 +121,11 @@
 }
 
 .showImages{
-  margin-top: 30px;
+  // margin-top: 30px;
 
   z-index: 20;
   .fa-xmark{
-    margin-top: 60px !important;
+    margin-top: 10px !important;
     @media (min-width: 0px) and (max-width: 600px) {
       margin-top: 70px !important;
 
@@ -135,10 +135,16 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 90%;
+
+  height: 100%;
 }
 .dots{
-  height: 10%;
+  height: 5%;
+  width: 100% !important;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  left: 0;
 }
 }
