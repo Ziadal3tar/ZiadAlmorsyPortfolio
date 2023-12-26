@@ -46,22 +46,39 @@
 
 
 
-<section class="showImages w-100 h-100 bg-black position-fixed top-0 start-0 bg-opacity-75" *ngIf="project" >
-  <i class="fa-solid fa-xmark text-white fs-3  m-3 cursor-pointer position-absolute top-0 end-0"
+<section class="slider-container w-100 h-100 bg-black position-fixed top-0 start-0 bg-opacity-75" *ngIf="project" >
+  <!-- <i class="fa-solid fa-xmark text-white fs-3  m-3 cursor-pointer position-absolute top-0 end-0"
    (click)="close()"></i>
 <div class=" imageDisplayed " style="background-image: url({{project.images[imageNum]}});"
 
-
-(mousedown)="onMouseDown($event)"
-(mousemove)="onMouseMove($event)"
-(mouseup)="onMouseUp()"
-(mouseleave)="onMouseLeave()"
-(mouseout)="onMouseOut()"
 
 ></div>
 
     <div class="dots w-100 d-flex align-items-center justify-content-center">
       <button class=" border-0  rounded-5  box-shadow btnSlider mx-1 transition" [ngClass]="{'bg-mainColor': i==imageNum}"
       *ngFor="let item of project.images let i = index" (click)="changeImg(i)"></button>
+    </div> -->
+
+
+    <div class="slider position-relative" [style.transform]="'translateX(' + (-imageNum * 100) + '%)'">
+      <div *ngFor="let image of project.images; let i = index" class="slide">
+        <img [src]="image" alt="Image {{ i + 1 }}">
+      </div>
     </div>
+    <button (click)="prevSlide()" class="nav-btn prev-btn">&#10094;</button>
+    <button (click)="nextSlide()" class="nav-btn next-btn">&#10095;</button>
+
+
+    <div class="dots w-100 d-flex align-items-center justify-content-center position-absolute bottom-0">
+      <button class=" border-0  rounded-5 p-1 box-shadow btnSlider mx-1 transition"   [ngClass]="{
+        'bg-mainColor': i==imageNum,
+        'd-none': i>imageNum+4 || i<imageNum-4,
+
+
+
+    }"
+      *ngFor="let item of project.images let i = index" (click)="changeImg(i)"></button>
+    </div>
+    <i class="fa-solid fa-xmark text-white fs-3  m-3 cursor-pointer position-absolute top-0 end-0"
+   (click)="close()"></i>
 </section>

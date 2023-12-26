@@ -126,6 +126,7 @@
   z-index: 20;
   .fa-xmark{
     margin-top: 10px !important;
+    color: #838383 !important;
     @media (min-width: 0px) and (max-width: 600px) {
       margin-top: 70px !important;
 
@@ -141,14 +142,54 @@
 .dots{
   height: 5%;
   width: 100% !important;
-  position: absolute;
-  bottom: 0;
+  position: absolute !important;
+  bottom: 5px !important;
   margin: 0;
   padding: 0;
   left: 0;
-  button{
-    @media (min-width: 0px) and (max-width: 500px) {
-    }
-  }
+
+
 }
+}
+.slider-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-400%);
+
+  align-items: center;
+  height: 100vh;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: white;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
 }

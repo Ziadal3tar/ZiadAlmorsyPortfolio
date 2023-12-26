@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 import 'hammerjs';
 @Component({
@@ -11,7 +11,7 @@ export class ProjectsComponent {
   projects: any[] = [];
   project: any;
   imageNum: any = 0;
-  constructor(private _common: CommonService) {}
+  constructor(private _common: CommonService,private renderer: Renderer2) {}
   ngOnInit(): void {
     this._common.getAllProjects().subscribe((data: any) => {
       this.projects = data.project.reverse();
@@ -77,52 +77,44 @@ this.projects = storedArray
   }
 
 
-  isMouseDown: boolean = false;
-  initialMouseX: number = 0;
-  hasChangedImage: boolean = false;
+  isDragging: boolean = false;
+  initialX: number = 0;
+  @ViewChild('slider') slider!: ElementRef;
 
-  onMouseDown(event: MouseEvent) {
-    this.isMouseDown = true;
-    this.initialMouseX = event.clientX;
-    this.hasChangedImage = false; // Reset the flag when the mouse is down
+  nextSlide(): void {
+    this.imageNum = (this.imageNum + 1) % this.project.images.length;
   }
 
-  onMouseMove(event: MouseEvent) {
-    if (this.isMouseDown && !this.hasChangedImage) {
-      const deltaX = event.clientX - this.initialMouseX;
+  prevSlide(): void {
+    this.imageNum = (this.imageNum - 1 + this.project.images.length) % this.project.images.length;
+  }
 
-      if (deltaX > 50) { // You can adjust this threshold as needed
-        // Mouse is moving to the right
-        this.showNextImage();
-        this.hasChangedImage = true; // Set the flag to true once the function is called
-      } else if (deltaX < -50) { // You can adjust this threshold as needed
-        // Mouse is moving to the left
-        this.showPreviousImage();
-        this.hasChangedImage = true; // Set the flag to true once the function is called
+  startDrag(event: any): void {
+    this.isDragging = true;
+    this.initialX = event.touches ? event.touches[0].clientX : event.clientX;
+  }
+
+  onDrag(event: any): void {
+    if (this.isDragging) {
+      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+      const deltaX = clientX - this.initialX;
+
+      if (deltaX > 50) {
+        this.prevSlide();
+        this.isDragging = false;
+      } else if (deltaX < -50) {
+        this.nextSlide();
+        this.isDragging = false;
       }
     }
   }
 
-  onMouseUp() {
-    this.isMouseDown = false;
-    this.hasChangedImage = false; // Reset the flag when the mouse is up
+  stopDrag(): void {
+    this.isDragging = false;
   }
 
-  onMouseLeave() {
-    this.isMouseDown = false;
-    this.hasChangedImage = false; // Reset the flag when the mouse leaves the container
-  }
 
-  onMouseOut() {
-    this.isMouseDown = false;
-    this.hasChangedImage = false; // Reset the flag when the mouse leaves the container
-  }
 
-  showNextImage() {
-    this.imageNum = (this.imageNum + 1) % this.project.images.length;
-  }
 
-  showPreviousImage() {
-    this.imageNum = (this.imageNum - 1 + this.project.images.length) % this.project.images.length;
-  }
+
 }
