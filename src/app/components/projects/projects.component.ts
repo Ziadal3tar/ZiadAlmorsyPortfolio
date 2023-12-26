@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
+import 'hammerjs';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -41,20 +42,7 @@ this.projects = storedArray
     }
 
   }
-  right() {
-    if (this.imageNum == this.project.images.length - 1) {
-      this.imageNum = 0;
-    } else {
-      this.imageNum += 1;
-    }
-  }
-  left() {
-    if (this.imageNum == 0) {
-      this.imageNum = this.project.images.length - 1;
-    } else {
-      this.imageNum -= 1;
-    }
-  }
+
   details(id: any) {
     let div: any = document.getElementById(`project${id}`);
     var translateXValue1 = '200%';
@@ -80,37 +68,61 @@ this.projects = storedArray
     this.project = '';
     this.imageNum = 0;
     let nav: HTMLElement | any = document.getElementById('nav');
-    nav.style.opacity = '1';
+    nav.style.setProperty('display', 'flex', 'important');
   }
   hideNav(){
 
     let nav: HTMLElement | any = document.getElementById('nav');
-    nav.style.opacity = '0';
+    nav.style.setProperty('display', 'none', 'important');
   }
 
-  showPrev(){
-console.log('fd');
 
-// this.imageNum + 1
+  isMouseDown: boolean = false;
+  initialMouseX: number = 0;
+  hasChangedImage: boolean = false;
+
+  onMouseDown(event: MouseEvent) {
+    this.isMouseDown = true;
+    this.initialMouseX = event.clientX;
+    this.hasChangedImage = false; // Reset the flag when the mouse is down
+  }
+
+  onMouseMove(event: MouseEvent) {
+    if (this.isMouseDown && !this.hasChangedImage) {
+      const deltaX = event.clientX - this.initialMouseX;
+
+      if (deltaX > 50) { // You can adjust this threshold as needed
+        // Mouse is moving to the right
+        this.showNextImage();
+        this.hasChangedImage = true; // Set the flag to true once the function is called
+      } else if (deltaX < -50) { // You can adjust this threshold as needed
+        // Mouse is moving to the left
+        this.showPreviousImage();
+        this.hasChangedImage = true; // Set the flag to true once the function is called
       }
-
-
-
-
-
-
-      showNext(){
-console.log('fd1');
-
-        // if (this.selectedIndex>0) {
-        //   this.selectedIndex = i-1
-        //   this._image.updateIndex(this.selectedIndex)
-        //   this.closeTriller.emit('close')
-
-        //   }
-      }
-
-
     }
+  }
 
+  onMouseUp() {
+    this.isMouseDown = false;
+    this.hasChangedImage = false; // Reset the flag when the mouse is up
+  }
 
+  onMouseLeave() {
+    this.isMouseDown = false;
+    this.hasChangedImage = false; // Reset the flag when the mouse leaves the container
+  }
+
+  onMouseOut() {
+    this.isMouseDown = false;
+    this.hasChangedImage = false; // Reset the flag when the mouse leaves the container
+  }
+
+  showNextImage() {
+    this.imageNum = (this.imageNum + 1) % this.project.images.length;
+  }
+
+  showPreviousImage() {
+    this.imageNum = (this.imageNum - 1 + this.project.images.length) % this.project.images.length;
+  }
+}
