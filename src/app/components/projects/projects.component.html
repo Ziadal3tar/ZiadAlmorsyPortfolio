@@ -17,19 +17,19 @@
 </section>
 <!-- [ngClass]="{ 'unFiltered' : filter != x.type&& filter != 'all', 'filtered' : filter == x.type ||  filter == 'all'}" -->
 <section id="projects" class="container row m-0 mx-auto px-3 d-flex align-items-center justify-content-evenly">
-  <div class="col-12 col-md-6 col-xl-4 project my-3 overflow-hidden position-relative filtered" *ngFor="let x of projects let i = index " id="project{{i}}"
-    >
+  <div class="col-12 col-md-6 col-xl-4 project my-3 overflow-hidden position-relative filtered"
+    *ngFor="let x of projects let i = index " id="project{{i}}">
     <div class="col-12 transition cursor-pointer image" style="background-image: url({{x.images[0]}});"
       (click)="project = x" (click)="hideNav()">
     </div>
     <div class="  details d-flex flex-column align-items-end">
       <div class=" w-100 d-flex justify-content-between align-items-center">
-        <p class=" fw-bold fs-4 ">{{x.name}}</p>
+        <p class=" fw-bold fs-6 px-2 ">{{x.name}}</p>
         <a href="{{x.link}}">demo</a>
       </div>
       <p class=" text-primary cursor-pointer" (click)="details(i)">details</p>
     </div>
-     <div class="scrollStyle  overflow-scroll moreDetails transition">
+    <div class="scrollStyle  overflow-scroll moreDetails transition">
       <p class="fw-bolder fs-3">{{x.name}}</p>
       <p>{{x.description}}</p>
       <div>
@@ -38,7 +38,7 @@
           <li *ngFor="let technology of x.technologies" class="mainColor list-unstyled ">{{technology}}</li>
         </ul>
       </div>
-     </div>
+    </div>
 
   </div>
 
@@ -46,7 +46,7 @@
 
 
 
-<section class="slider-container w-100 h-100 bg-black position-fixed top-0 start-0 bg-opacity-75" *ngIf="project" >
+<section class="slider-container w-100 h-100 bg-black position-fixed top-0 start-0 bg-opacity-75" *ngIf="project">
   <!-- <i class="fa-solid fa-xmark text-white fs-3  m-3 cursor-pointer position-absolute top-0 end-0"
    (click)="close()"></i>
 <div class=" imageDisplayed " style="background-image: url({{project.images[imageNum]}});"
@@ -60,25 +60,20 @@
     </div> -->
 
 
-    <div class="slider position-relative" [style.transform]="'translateX(' + (-imageNum * 100) + '%)'">
-      <div *ngFor="let image of project.images; let i = index" class="slide">
-        <img [src]="image" alt="Image {{ i + 1 }}">
-      </div>
+  <div class="slider position-relative" [style.transform]="'translateX(' + (-imageNum * 100) + '%)'">
+    <div *ngFor="let image of project.images; let i = index" class="slide">
+      <img [src]="image" alt="Image {{ i + 1 }}">
     </div>
-    <button (click)="prevSlide()" class="nav-btn prev-btn">&#10094;</button>
-    <button (click)="nextSlide()" class="nav-btn next-btn">&#10095;</button>
+  </div>
+  <button (click)="prevSlide()" class="nav-btn prev-btn">&#10094;</button>
+  <button (click)="nextSlide()" class="nav-btn next-btn">&#10095;</button>
 
 
-    <div class="dots w-100 d-flex align-items-center justify-content-center position-absolute bottom-0">
-      <button class=" border-0  rounded-5 p-1 box-shadow btnSlider mx-1 transition"   [ngClass]="{
+  <div class="dots w-100 d-flex align-items-center justify-content-center position-absolute bottom-0">
+    <button class=" border-0  rounded-5 p-1 box-shadow btnSlider mx-1 transition" [ngClass]="{
         'bg-mainColor': i==imageNum,
         'd-none': i>imageNum+4 || i<imageNum-4,
-
-
-
-    }"
-      *ngFor="let item of project.images let i = index" (click)="changeImg(i)"></button>
-    </div>
-    <i class="fa-solid fa-xmark text-white fs-3  m-3 cursor-pointer position-absolute top-0 end-0"
-   (click)="close()"></i>
+ }" *ngFor="let item of project.images let i = index" (click)="changeImg(i)"></button>
+  </div>
+  <i class="fa-solid fa-xmark text-white fs-3  m-3 cursor-pointer position-absolute top-0 end-0" (click)="close()"></i>
 </section>

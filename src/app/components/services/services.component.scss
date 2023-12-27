@@ -1,10 +1,10 @@
 .header {
-  height: 60vh;
+  height: 55vh;
   position: relative;
-overflow: hidden;
-padding-top: 100px;
+  overflow: hidden;
+  padding-top: 100px;
+  width: 100%;
 
-width: 100%;
   .image {
     z-index: -1;
     height: 100%;
@@ -34,33 +34,79 @@ width: 100%;
     }
   }
 }
-#services {
-  width: 100vw;
-  overflow: hidden;
 
-  // .mx5 {
-  //   margin: 0 2.5vw;
-  // }
+#slider {
+  width: auto;
+  height: 40vh;
+  display: -webkit-box !important;
+  transition: 0.5s !important;
+overflow: hidden;
+  .item {
+    height: 35vh !important;
+    transition: 0.5s !important;
 
-  // .me5 {
-  //   margin-right: 2.5vw;
-  // }
+    @media (min-width: 800px) {
+      width: calc(100%/3);
+    }
 
-  // .ms5 {
-  //   margin-left: 2.5vw;
-  // }
+    @media (min-width: 500px) and (max-width: 800px) {
+      width: calc(100%/2);
+    }
 
-  // .w-30 {
-  //   width: 50%;
-  // }
+    @media (max-width: 500px) {
+      width: 100%;
+    }
 
-  .h-30 {
-    height: 33vh !important;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    border-radius: 10px;
+    .details {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      border-radius: 10px;
+      .icon {
+        height: 25%;
+        margin-top: 5%;
+
+      }
+      .text{
+        height: 60%;
+        margin-top: 5%;
+      }
+    }
   }
-  .btnSlider{
 
-    background-color: rgba(128, 128, 128, 0.306);
-  }
 }
+
+.btnDiv{
+.btnD{
+  // background-color: black;
+  // width: 32px;
+  // height: 32px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // border-radius: 50%;
+  // font-size: 17px;
+  padding: 0 15px;
+
+  cursor: pointer;
+  i{
+color: gray;
+    font-weight: 900;
+}
+}}
+
+
+
+
+
+
+
+
+// .h-30 {
+//   height: 33vh !important;
+//   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+//   border-radius: 10px;
+// }
+
+// .btnSlider {
+
+//   background-color: rgba(128, 128, 128, 0.306);
+// }

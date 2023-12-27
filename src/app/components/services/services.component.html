@@ -6,24 +6,29 @@
   </div>
 </section>
 
-<section id="services" class=" pb-3">
-  <div class="d-flex transition row" id="slider" [style.width]="services.length*width +'vw'">
-    <div class=" p-5 " [style.width]="width +'vw'" *ngFor="let item of services let x = index">
-      <div class=" border h-30 d-flex flex-column align-items-center justify-content-evenly">
-        <div class=" w-100 h-25 d-flex align-items-center justify-content-center">
-        <i [ngClass]="item.icon" class="fs-1 secColor"></i>
-        </div>
-        <div class="h-50 text-center px-3 scrollStyle">
-          <p class="fs-5">{{item.desc}}</p>
-        </div>
+<section id="slider" class="">
+  <div class="item px-3" *ngFor="let item of items let i = index"
+    [style.transform]="'translateX(' + (-imageNum * 100) + '%)'">
 
+
+
+    <div class="w-100 h-100 details py-3">
+      <div class="icon w-100 d-flex align-items-center justify-content-center"><i class="fs-1 secColor "
+          [ngClass]="item.icon"></i></div>
+      <div class="text text-center px-3 scrollStyle mx-1">
+        <p class="fs-5">{{item.desc}}</p>
       </div>
     </div>
   </div>
+</section>
+<div style=" width: 100%;">
+  <div class="position-relative btnDiv d-flex align-items-center justify-content-center">
+    <div class="btnD" (click)="prevSlide()"><i class="bi bi-caret-left-fill fs-4"></i></div>
+    <div class="btnD" (click)="nextSlide()"><i class="bi bi-caret-right-fill fs-4"></i></div>
+  </div>
   <div class=" w-100 d-flex align-items-center justify-content-center py-1">
     <button class=" border-0  rounded-5 p-2 box-shadow btnSlider mx-1 transition"
-      *ngFor="let item of services let i = index" [ngClass]="{'d-none': i>services.length-3,'bg-secColor':i==margin}"
-      (click)="Margin(i)"></button>
+      *ngFor="let item of items let i = index" [ngClass]="{'bg-secColor':i==imageNum+1}"
+      ></button>
   </div>
-</section>
-<!-- [ngClass]="{'me5': x==0,'ms5': x+1==services.length,'mx5':x+1 != services.length&&x!=0}" -->
+</div>

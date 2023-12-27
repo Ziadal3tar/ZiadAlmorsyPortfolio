@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-services',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class ServicesComponent {
   margin = 0;
   width: any;
-  services: any = [
+  items: any = [
     {
       desc: 'Express.js: A web application framework for Node.js that simplifies the process of building server-side applications. Express.js helps in creating RESTful APIs and handling routing in MEAN applications.',
       icon: 'fa-solid fa-brush',
@@ -58,19 +58,44 @@ export class ServicesComponent {
       icon: '',
     },
   ];
+  colors: any[] = ['#ff5733', '#ffcf33', '#33ff57', '#3366ff', '#b933ff', '#ff3366', '#33b9ff', '#f9ff33', '#ff3333', '#33fff6', '#7a33ff'];
+  imageNum=0
   ngOnInit(): void {
-    if (window.innerWidth >= 767 && window.innerWidth <= 1023) {
-      this.width = 50;
-    } else if (window.innerWidth <= 767) {
-      this.width = 100;
-    }else if(window.innerWidth >=  1024){
-      this.width = 33.333;
+    if (window.innerWidth >= 500 && window.innerWidth <= 768) {
+      console.log('1');
+
+      this.width = 0;
+    } else if (window.innerWidth <= 500) {
+      console.log('2');
+
+      this.width =0;
+    }else if(window.innerWidth >=  768){
+      console.log('3');
+
+      this.width = 1;
     }
   }
 
-  Margin(i: any) {
-    this.margin = i;
-    let div: any = document.getElementById('slider');
-    div.style.marginLeft = -this.width * this.margin + '%';
+
+  nextSlide(): void {
+    if (window.innerWidth >= 500 && window.innerWidth <= 768) {
+      this.imageNum = (this.imageNum + 1) % (this.colors.length);
+    } else if (window.innerWidth <= 500) {
+      this.imageNum = (this.imageNum + 1) % (this.colors.length+1);
+    }else if(window.innerWidth >=  768){
+      this.imageNum = (this.imageNum + 1) % (this.colors.length-1);
+    }
+
   }
+
+  prevSlide(): void {
+    if (window.innerWidth >= 500 && window.innerWidth <= 768) {
+      this.imageNum = (this.imageNum - 1 + this.colors.length) % this.colors.length;
+    } else if (window.innerWidth <= 500) {
+      this.imageNum = (this.imageNum - 1 + this.colors.length) % this.colors.length+1;
+    }else if(window.innerWidth >=  768){
+      this.imageNum = (this.imageNum - 1 + this.colors.length) % this.colors.length-1;
+    }
+  }
+
 }

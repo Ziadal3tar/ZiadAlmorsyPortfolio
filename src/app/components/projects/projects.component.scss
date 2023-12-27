@@ -103,11 +103,20 @@
   }
 
   .image {
-    height: 250px;
+    height: 190px;
+    @media (min-width: 0px) and (max-width: 768px) {
+      height: 210px;
+
+    }
   }
 
   .details {
-    height: 100px;
+    height: auto;
+
+    @media (min-width: 0px) and (max-width: 768px) {
+     padding: 0 8px;
+
+    }
   }
 
   .moreDetails {
@@ -151,6 +160,7 @@
 
 }
 }
+
 .slider-container {
   position: relative;
   overflow: hidden;
