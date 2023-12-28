@@ -8,5 +8,13 @@ import { CommonService } from './services/common.service';
 })
 export class AppComponent {
   title = 'portofolio';
-  constructor(public _common: CommonService) {}
+  constructor(public _common: CommonService) {
+
+  }
+  ngOnInit(): void {
+//     this._common.CookiesId().subscribe((data:any)=>{
+// console.log(data);
+
+//     })
+  }
 }
