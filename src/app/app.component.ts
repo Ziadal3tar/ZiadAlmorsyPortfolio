@@ -12,9 +12,9 @@ export class AppComponent {
 
   }
   ngOnInit(): void {
-//     this._common.CookiesId().subscribe((data:any)=>{
-// console.log(data);
+    this._common.CookiesId().subscribe((data:any)=>{
+console.log(data);
 
-//     })
+    })
   }
 }

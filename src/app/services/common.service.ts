@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
   baseUrl: any = 'https://be-portfolio-zeta.vercel.app/project';
-  // baseUrl4EV: any = 'https://portfolio-be-ziadal3tar.vercel.app/EV';
+  baseUrl4EV: any = 'https://be-portfolio-zeta.vercel.app';
   // baseUrl: any = 'http://localhost:3000/project';
   // baseUrl4EV: any = 'http://localhost:3000/EV';
   constructor(private _http: HttpClient) {}
@@ -30,7 +30,7 @@ export class CommonService {
   deleteProject(id:any):any {
     return this._http.delete(`${this.baseUrl}/deleteProject/${id}`);
   }
-  // CookiesId():any {
-  //   return this._http.get(`${this.baseUrl4EV}/CookiesId`);
-  // }
+  CookiesId():any {
+    return this._http.get(`${this.baseUrl4EV}`);
+  }
 }
