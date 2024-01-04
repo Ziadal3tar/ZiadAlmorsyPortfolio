@@ -10,9 +10,5 @@ export class NavComponent {
   isOpen:Boolean = false
   tap:any='header'
   constructor(private router : Router){}
-  ngOnInit(): void {
 
-
-
-  }
 }

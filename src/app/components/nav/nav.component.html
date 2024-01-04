@@ -3,26 +3,26 @@
   <div class="col-10 d-none d-md-flex">
 <div class=" d-flex  justify-content-end container1">
       <ul [ngClass]="!isOpen?'mr-100':''" class="transition d-flex align-items-center justify-content-evenly divUl my-auto ">
-        <li><a routerLink="/services">SERVICES</a></li>
-        <li><a routerLink="/projects">PROJECT</a></li>
-        <li><a routerLink="/about">ABOUT</a></li>
-        <li><a routerLink="/contact">CONTACT</a></li>
+        <li ><a  routerLink="/services">SERVICES</a></li>
+        <li ><a  routerLink="/projects">PROJECT</a></li>
+        <li ><a  routerLink="/about">ABOUT</a></li>
+        <li ><a  routerLink="/contact">CONTACT</a></li>
       </ul>
     </div>
   </div>
   <div class="col-1 d-flex align-items-center justify-content-center"><i [ngClass]="!isOpen?'fa-bars':'fa-xmark'" (click)="isOpen = !isOpen" class="fa-solid  fs-3 cursor-pointer"></i></div>
 
 
-  <div class="position-absolute start-0 sidenav transition  d-flex d-md-none" [ngClass]="!isOpen?'top-80':'top-60'">
-    <div class="h-100  ">
-          <ul class="transition h-50 d-flex align-items-start justify-content-between flex-column mt-4 p-0">
-            <li><a routerLink="/services">SERVICES</a></li>
-            <li><a routerLink="/projects">PROJECT</a></li>
-            <li><a routerLink="/about">ABOUT</a></li>
-            <li><a routerLink="/contact">CONTACT</a></li>
-          </ul>
-        </div>
-      </div>
 </nav>
+<div class="position-absolute start-0 sidenav transition d-flex d-md-none" [ngClass]="!isOpen?'top-80':'top-60'">
+  <div class="h-100 w-100 d-flex align-items-center justify-content-center ">
+        <ul class="transition d-flex align-items-center justify-content-around w-100 p-0 m-0 pb-1">
+          <li (click)="isOpen = false"><a routerLink="/services">SERVICES</a></li>
+          <li (click)="isOpen = false"><a routerLink="/projects">PROJECT</a></li>
+          <li (click)="isOpen = false"><a routerLink="/about">ABOUT</a></li>
+          <li (click)="isOpen = false"><a routerLink="/contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
 
 
