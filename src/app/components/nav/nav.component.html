@@ -30,7 +30,7 @@
 
 
 <div id="headerSection">
-  <app-header></app-header>
+  <app-header (changeTap)="scrollToSection($event)"></app-header>
 </div>
 <div id="aboutSection">
   <app-about></app-about>

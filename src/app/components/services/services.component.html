@@ -26,7 +26,7 @@
     <div class="btnD" (click)="prevSlide()"><i class="bi bi-caret-left-fill fs-4"></i></div>
     <div class="btnD" (click)="nextSlide()"><i class="bi bi-caret-right-fill fs-4"></i></div>
   </div>
-  <div class=" w-100 d-flex align-items-center justify-content-center py-1">
+  <div class=" w-100 d-flex align-items-center justify-content-center py-1 d-none">
     <button class=" border-0  rounded-5 p-2 box-shadow btnSlider mx-1 transition"
       *ngFor="let item of items let i = index" [ngClass]="{'bg-secColor':i==imageNum+1}"
       ></button>

@@ -126,7 +126,8 @@ font-size: 14px;
 span{
 font-size: 18px;
 
-  color: skyblue;
+color: #c70039;
+
   font-weight: 700;
 }
 }
@@ -140,7 +141,7 @@ font-size: 18px;
     transition: 0.3s;
 
     &:hover {
-      color: var(--primary);
+      color: #c70039;
     }
   }
 }
