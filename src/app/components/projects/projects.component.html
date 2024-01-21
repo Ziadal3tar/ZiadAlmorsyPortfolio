@@ -8,11 +8,13 @@
 
 <section id="filter" class="row m-0 d-flex align-items-center justify-content-center">
   <ul id="ul" class=" col-xl-5 col-lg-6 col-md-8 col-11">
-    <li class="d-none d-sm-block" (click)="active($event,'pure javascript')">pure js</li>
-    <li (click)="active($event,'angular')">angular</li>
-    <li (click)="active($event,'frontend')">frontend</li>
-    <li (click)="active($event,'backend')">backend</li>
-    <li (click)="active($event,'all')" class="active">all</li>
+    <!-- <li (click)="active($event,'pure javascript')">Vanilla JS</li> -->
+    <li (click)="active($event,'angular')">Angular</li>
+    <!-- <li (click)="active($event,'frontend')">Vanilla JS</li> -->
+    <li (click)="active($event,'pure javascript')">Vanilla JS</li>
+
+    <li (click)="active($event,'backend')">Node.JS</li>
+    <li (click)="active($event,'all')" class="active">All</li>
   </ul>
 </section>
 <!-- [ngClass]="{ 'unFiltered' : filter != x.type&& filter != 'all', 'filtered' : filter == x.type ||  filter == 'all'}" -->
@@ -25,9 +27,9 @@
     <div class="  details d-flex flex-column align-items-end">
       <div class=" w-100 d-flex justify-content-between align-items-center">
         <p class=" fw-bold fs-6 px-2 ">{{x.name}}</p>
-        <a href="{{x.link}}">demo</a>
+        <a class="mainColor" href="{{x.link}}">demo</a>
       </div>
-      <p class=" text-primary cursor-pointer" (click)="details(i)">details</p>
+      <p class=" mainColor cursor-pointer" (click)="details(i)">details</p>
     </div>
     <div class="scrollStyle  overflow-scroll moreDetails transition">
       <p class="fw-bolder fs-3">{{x.name}}</p>

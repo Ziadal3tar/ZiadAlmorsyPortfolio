@@ -3,6 +3,9 @@
   padding-top: 60px;
 overflow: hidden;
   .about {
+    span{
+      color: #c70039;
+    }
     position: relative;
     font-size: 80px;
     font-weight: 900;
@@ -22,12 +25,12 @@ overflow: hidden;
 
     &:after {
       content: '';
-      width: 350px;
+      width: 100px;
       height: 2px;
       position: absolute;
       top: 50%;
       margin: 0 20px;
-      background: #000000;
+      background: #ffffff;
     }
   }
 
@@ -36,7 +39,7 @@ overflow: hidden;
     overflow: hidden;
     p{
     @media (min-width: 0px) and (max-width: 400px) {
-      font-size: 14px !important;
+      font-size: 18px !important;
     }}
 
   }
@@ -89,9 +92,9 @@ overflow: hidden;
 
   .backImg {
 
-    background-image: url(../../../assets/image/z.jfif);
-    background-position: top;
-    background-size: cover;
+background: url(../../../assets/image/z.jfif) fixed;
+background-position: 15%;
+background-size: 34%;
     filter: blur(4px);
   }
 .front{

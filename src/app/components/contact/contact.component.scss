@@ -3,7 +3,8 @@
 
 margin-top: 60px;
   height: auto;
-  background-color: rgb(64, 64, 64);
+  background-color: #171717;
+
   width: 100vw;
   p {
     font-size: 20px;
@@ -34,7 +35,8 @@ margin-top: 60px;
     background: #ffffff;
     cursor: pointer;
     border: none;
-    border-radius: 50px;
+    border-radius: 0px 20px 0px 20px !important;
+
     &:hover{
       margin-bottom: 20px;
     }
@@ -57,7 +59,8 @@ margin-top: 60px;
   }
 
   .details {
-    background-color: rgb(64, 64, 64);
+    background-color: #171717;
+
 height: 85vh;
   }
 

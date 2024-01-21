@@ -1,23 +1,19 @@
 
-<section class="row m-0 ">
-  <div class="row m-0">
-    <div class="col-lg-6 col-md-12 d-flex align-items-start justify-content-center flex-column half-1">
-      <div class="col-6 d-flex flex-column align-items-start justify-content-evenly m-0">
-        <p class="par-1 slideInLeft">HELLO</p>
-        <p class="par-2 slideInLeft">I AM <br> <span>ZIAD ALMORSY</span></p>
-        <p class="par-3 slideInLeft">FULLSTACK DEVELOPER (MEAN)</p>
+<section class="row m-0 " >
+  <div class="row m-0 flex-column-reverse flex-lg-row" #particlesContainer>
+    <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center flex-column half-1">
+      <div class="col-12 d-flex flex-column align-items-center justify-content-evenly m-0">
+        <p class="par-2 slideInLeft">Ziad<span class="mainColor"> Almorsy</span></p>
       </div>
-      <div class="btns d-flex align-items-center justify-content-between my-2 col-10 col-sm-8 col-md-4 col-lg-6 col-xl-6 slideInLeft">
+      <div appRotateText [rotateArray]="['Freelancer.', 'Web developer.', 'Frontend developer.', 'Backend developer.', 'MeanStack developer.']" [rotatePeriod]="1200"></div>
+
+      <div class="btns d-flex align-items-center justify-content-between my-2  slideInLeft">
         <button class=" btn btn-1 text-white rounded-0 px-3 rounded-2" routerLink="/projects" (click)="click('projects')">MY PROJECT</button>
         <button class=" btn btn-2 text-white rounded-0 px-3 rounded-2" routerLink="/contact" (click)="click('contact')">CONTACT</button>
       </div>
     </div>
     <div class="col-lg-6 col-md-12 vh-100 d-flex align-items-center justify-content-center half-2 p-0 m-0 slideInRight">
-      <svg viewBox="0 0 2852 2677" fill="#fcb9b28b" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M1402 2634C-730 3008.4 -36.3334 797.5 917.5 1H2696.84L2851.34 2386C2710.94 2008.4 1744.5 2631.17 1402 2634Z"
-          stroke="none" />
-      </svg>
+
       <div (click)="toPdf()" class="col-12 row m-0 animation d-flex align-items-center justify-content-center">
         <div class=" col-12 p-5 mt-5   position-relative overflow-hidden "
           style="border-radius: 50px; height: 490px ; width: 400px; background-image: url(../../../assets/13972.jpg); background-position: center; background-size: contain;">
@@ -31,3 +27,4 @@
   </div>
 
 </section>
+<div id="particles-js"></div>

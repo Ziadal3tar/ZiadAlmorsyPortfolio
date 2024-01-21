@@ -9,14 +9,18 @@
     z-index: -1;
     height: 100%;
     width: 100%;
-    background-image: url(../../../assets/image/customer-service-faqs-illustration.jpg);
+    background: url(../../../assets/image/customer-service-faqs-illustration.jpg) center fixed;
     background-position: center;
     background-size: cover;
     filter: blur(4px);
+    @media (max-width :768px) {
+      height: 65%;
+
+    }
   }
 
   p {
-    color: #cd776d;
+    color: #c70039;
     font-size: 17px;
     font-weight: 700;
 
@@ -25,7 +29,7 @@
       color: white;
 
       &:hover {
-        color: #cd776d;
+        color: #c70039;
       }
     }
 

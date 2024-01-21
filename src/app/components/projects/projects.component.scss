@@ -12,14 +12,18 @@
       z-index: -1;
       height: 100%;
       width: 100%;
-      background-image: url(../../../assets/image/project-management-planning-development-message-box-notification-graphic.jpg);
+      background: url(../../../assets/image/project-management-planning-development-message-box-notification-graphic.jpg) center fixed;
       background-position: center;
       background-size: cover;
       filter: blur(4px);
+      @media (max-width :768px) {
+        height: 65%;
+
+      }
     }
 
     p {
-      color: #cd776d;
+      color: #c70039 !important;
       font-size: 17px;
       font-weight: 700;
 
@@ -28,7 +32,7 @@
         color: white;
 
         &:hover {
-          color: #cd776d;
+          color: #c70039;
         }
       }
 
@@ -58,14 +62,14 @@
       text-decoration: none;
       position: relative;
       cursor: pointer;
-
+color: #fff;
       &::after {
         transition: 0.5s !important;
         content: '';
         position: absolute;
         width: 0px;
         height: 3px;
-        background-color: #cd776d;
+        background-color: #c70039;
         bottom: -5px;
         right: 0;
       }
@@ -77,7 +81,7 @@
         position: absolute;
         width: 100%;
         height: 3px;
-        background-color: #cd776d;
+        background-color: #c70039;
         bottom: -5px;
         left: 0;
       }
@@ -112,6 +116,9 @@
 
   .details {
     height: auto;
+    background-color: #171717;
+    z-index: 99;
+    position: relative;
 
     @media (min-width: 0px) and (max-width: 768px) {
      padding: 0 8px;
@@ -164,6 +171,7 @@
 .slider-container {
   position: relative;
   overflow: hidden;
+  z-index: 999999;
 }
 
 .slider {

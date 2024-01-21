@@ -1,28 +1,55 @@
-<nav id="nav" class="row m-0 d-flex align-items-center justify-content-between position-relative position-fixed top-0 box-shadow">
-  <div class="col-1 d-flex align-items-center justify-content-center"><a routerLink="/home"><p class=" m-0 logo">Z</p></a></div>
-  <div class="col-10 d-none d-md-flex">
-<div class=" d-flex  justify-content-end container1">
-      <ul [ngClass]="!isOpen?'mr-100':''" class="transition d-flex align-items-center justify-content-evenly divUl my-auto ">
-        <li ><a  routerLink="/services">SERVICES</a></li>
-        <li ><a  routerLink="/projects">PROJECT</a></li>
-        <li ><a  routerLink="/about">ABOUT</a></li>
-        <li ><a  routerLink="/contact">CONTACT</a></li>
-      </ul>
-    </div>
+<nav id="nav"
+  class="row m-0 d-flex align-items-center justify-content-between position-relative position-fixed top-0 box-shadow">
+  <div class="col-1 d-flex align-items-center justify-content-center"><a routerLink="/home">
+      <p class=" m-0 logo"><span>z</span>E</p>
+    </a></div>
+  <div class="menu col-1 d-flex  flex-column align-items-center justify-content-between" (click)="isOpen = !isOpen">
+    <i [ngClass]="{'rotateL': isOpen}"></i>
+    <i [ngClass]="{'opacity-0': isOpen}"></i>
+    <i [ngClass]="{'rotateR': isOpen}"></i>
   </div>
-  <div class="col-1 d-flex align-items-center justify-content-center"><i [ngClass]="!isOpen?'fa-bars':'fa-xmark'" (click)="isOpen = !isOpen" class="fa-solid  fs-3 cursor-pointer"></i></div>
-
-
 </nav>
-<div class="position-absolute start-0 sidenav transition d-flex d-md-none" [ngClass]="!isOpen?'top-80':'top-60'">
+<div class="position-fixed start-0 sidenav transition d-flex " [ngClass]="!isOpen?'close':'open'">
   <div class="h-100 w-100 d-flex align-items-center justify-content-center ">
-        <ul class="transition d-flex align-items-center justify-content-around w-100 p-0 m-0 pb-1">
-          <li (click)="isOpen = false"><a routerLink="/services">SERVICES</a></li>
-          <li (click)="isOpen = false"><a routerLink="/projects">PROJECT</a></li>
-          <li (click)="isOpen = false"><a routerLink="/about">ABOUT</a></li>
-          <li (click)="isOpen = false"><a routerLink="/contact">CONTACT</a></li>
-        </ul>
-      </div>
-    </div>
+    <ul class="transition d-flex flex-column align-items-start justify-content-between w-100 h-50 ps-5 p-0 m-0 pb-1">
+      <li (click)="isOpen = false"><a (click)="scrollToSection('headerSection')"
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>01.</span>HOME</a></li>
+      <li (click)="isOpen = false"><a (click)="scrollToSection('aboutSection')"
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>02.</span>ABOUT</a></li>
+      <li (click)="isOpen = false"><a (click)="scrollToSection('skillsSection')"
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>02.</span>SKILLS</a></li>
+      <li (click)="isOpen = false"><a (click)="scrollToSection('projectsSection')"
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>03.</span>PROJECT</a></li>
+      <li (click)="isOpen = false"><a (click)="scrollToSection('servicesSection')"
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>04.</span>SERVICES</a></li>
+      <li (click)="isOpen = false"><a (click)="scrollToSection('contactSection')"
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>05.</span>CONTACT</a></li>
+    </ul>
+  </div>
+</div>
 
 
+<div id="headerSection">
+  <app-header></app-header>
+</div>
+<div id="aboutSection">
+  <app-about></app-about>
+
+</div>
+<div id="skillsSection">
+  <app-skills></app-skills>
+
+</div>
+
+<div id="projectsSection">
+  <app-projects></app-projects>
+
+</div>
+
+<div id="servicesSection">
+  <app-services></app-services>
+</div>
+
+<div id="contactSection">
+  <app-contact></app-contact>
+</div>

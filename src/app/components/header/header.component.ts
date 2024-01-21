@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import { ParticlesService } from 'src/app/services/particles.service';
+declare let particlesJS: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,12 +12,17 @@ export class HeaderComponent {
   dd = 'topright';
   @Output() changeTap: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private _common: CommonService,private _Router:Router) {}
+  constructor(private _common: CommonService,private _Router:Router,private particlesService: ParticlesService) {}
+  @ViewChild('particlesContainer') particlesContainer!: ElementRef;
 
   ngOnInit(): void {
+    this.initializeParticles();
+
     this.play();
   }
-
+  ngAfterViewInit(): void {
+    // this.particlesService.createParticles(this.particlesContainer);
+  }
   play(): any {
     let shkl1 = <HTMLInputElement>document.getElementById('shkl1');
      shkl1.classList.replace('shkl1', 'shkl12');
@@ -47,5 +54,112 @@ export class HeaderComponent {
   click(tap:any){
   this.changeTap.emit(tap);
 
+  }
+  initializeParticles() {
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: '#ffffff'
+        },
+        shape: {
+          type: 'circle',
+          stroke: {
+            width: 0,
+            color: '#000000'
+          },
+          polygon: {
+            nb_sides: 5
+          },
+        },
+        opacity: {
+          value: 0.5,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#ffffff',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: {
+            enable: true,
+            mode: 'grab'
+          },
+          onclick: {
+            enable: true,
+            mode: 'push'
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 200,
+            line_linked: {
+              opacity: 1
+            }
+          },
+          bubble: {
+            distance: 200,
+            size: 80,
+            duration: 0.4,
+            opacity: 0.8,
+            speed: 3
+          },
+          repulse: {
+            distance: 100,
+            duration: 1
+          },
+          push: {
+            particles_nb: 4
+          },
+          remove: {
+            particles_nb: 2
+          }
+        }
+      },
+      retina_detect: true
+    });
   }
 }

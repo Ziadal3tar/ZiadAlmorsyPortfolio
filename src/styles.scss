@@ -13,10 +13,15 @@ p{
   padding: 0;
   box-sizing: border-box;
 }
+p,h1,h2,h3,h4,h5,h6{
+  color: #fff;
+}
 body{
-  background-image: url('../src/assets/image/25097.jpg') !important;
-  background-position: center;
-  background-size: cover;
+  // background-image: url('../src/assets/image/25097.jpg') !important;
+  // background-position: center;
+  // background-size: cover;
+  font-family: cursive !important;
+  background-color: #171717;
 }
 .cursor-pointer{
   cursor: pointer;
@@ -29,16 +34,16 @@ a{
   color: black;
 }
 .mainColor{
-  color: #fe9000 !important;
+  color: #c70039 !important;
 }
 .bg-mainColor{
-  background-color: #fe9000 !important;
+  background-color: #c70039 !important;
 }
 .secColor{
-  color: #fcb9b2 !important;
+  color: #fff !important;
 }
 .bg-secColor{
-  background-color: #fcb9b2 !important;
+  background-color: #fff !important;
 }
 .faceBook-color{
   color: #0165E1;
@@ -77,7 +82,7 @@ color: #E1306C;
 }
 
 .scrollStyle::-webkit-scrollbar-thumb {
-  background-color: #fe9000;
+  background-color: #c70039;
   border-radius: 20px;
   transition: 1s !important;
   margin-right: 20px !important;
@@ -93,4 +98,56 @@ animation-duration: 1s;
 }
 .vh-22{
   height: 22vh !important;
+}
+.sci {
+  @media (min-width: 0px) and (max-width: 768px) {
+    position: fixed;
+    bottom: 0px;
+  }
+
+  position: fixed;
+  bottom: 0px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 5px;
+  z-index: 0;
+ul{
+li{
+  font-size: 16px;
+  padding: 2px 0;
+  list-style: none;
+}
+}
+p{
+font-size: 14px;
+span{
+font-size: 18px;
+
+  color: skyblue;
+  font-weight: 700;
+}
+}
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-style: 25px;
+    transition: 0.3s;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+.rotateText{
+  font-size: 25px;
+  white-space: nowrap;
+  .wrap{
+    color: #c70039;
+  }
 }

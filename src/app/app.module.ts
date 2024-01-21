@@ -17,7 +17,10 @@ import { HomeComponent } from './components/home/home.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { LoadingComponent } from './components/loading/loading.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { RotateTextDirective } from './components/rotate-text.directive';
+import { ParticlesService } from './services/particles.service';
+import { SkillsComponent } from './components/skills/skills.component';
+// import { ParticlesService } from './particles.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     ControlComponent,
     HomeComponent,
     LoadingComponent,
+    RotateTextDirective,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     NgMultiSelectDropDownModule,
   ],
-  providers: [],
+  providers: [ParticlesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
