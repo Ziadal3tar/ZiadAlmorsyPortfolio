@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 import 'hammerjs';
 @Component({
@@ -7,6 +7,8 @@ import 'hammerjs';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
+  @Input() languageData:any
+@Input() arabic:any
   filter: String = 'all';
   projects: any[] = [];
   project: any;

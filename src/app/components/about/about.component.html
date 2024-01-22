@@ -1,17 +1,13 @@
 
-<section id="about">
+<section id="about"   >
   <div class="row h-100 flex-lg-wrap flex-wrap-reverse">
-    <div class="col-xl-6 col-lg-6 col-md-12 my-lg-0 my-5 vh-100 d-flex flex-column align-items-start justify-content-center ps-5">
+    <div  [dir]="arabic ? 'rtl' : 'ltr'"  class="col-xl-6 col-lg-6 col-md-12 my-lg-0 my-5 vh-100 d-flex flex-column align-items-start justify-content-center ps-5">
     <div class="w-auto h-auto ">
-      <p class="about w-100 "><span>ABOUT</span> ME</p>
+      <p class="about w-100 "><span>{{languageData.about.about}}</span> {{languageData.about.me}}</p>
       <div class=" w-ani position-relative  d-flex align-items-center " id="ani">
         <p class="title transition animate-charcter  text-capitalize" [innerHTML]="innerHtml"></p>
       </div>
-      <p class="par">I'm Ziad Almorsy Alattar , 22 years old. <br>
-        I have 6 months of experience, and am a fast learner .<br> Am willing to gain more experience and learn new
-        skills
-        . <br> I started learning web programming in 2021 through self-learning,<br> and I completed my learning of web
-        programming at Route Center.</p>
+      <p class="par">{{languageData.about.pref}}</p>
     </div>
     </div>
     <div class="col-xl-6 col-lg-6 col-12 row m-0  position-relative my-lg-0 my-5 front">

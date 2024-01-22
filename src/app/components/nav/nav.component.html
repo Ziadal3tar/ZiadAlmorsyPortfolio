@@ -3,53 +3,69 @@
   <div class="col-1 d-flex align-items-center justify-content-center"><a routerLink="/home">
       <p class=" m-0 logo"><span>z</span>E</p>
     </a></div>
-  <div class="menu col-1 d-flex  flex-column align-items-center justify-content-between" (click)="isOpen = !isOpen">
-    <i [ngClass]="{'rotateL': isOpen}"></i>
-    <i [ngClass]="{'opacity-0': isOpen}"></i>
-    <i [ngClass]="{'rotateR': isOpen}"></i>
-  </div>
+    <div class=" col-xl-2 col-lg-2 col-md-2 col-sm-4 col-5 d-flex row m-0 align-items-center justify-content-between ">
+
+
+      <!-- <div class="col-3 mainColor  moods d-flex align-items-center justify-content-center" (click)="changeMood()" ><i [ngClass]="!dark?'right bi-sun-fill':'left bi-moon-fill'" class="bi "></i></div> -->
+      <div class="col-3 lang" (click)="changeLang()" [ngClass]="!arabic?'arabic':'english'"></div>
+    <div class="menu col-3 d-flex  flex-column align-items-center justify-content-between" (click)="isOpen = !isOpen">
+      <i [ngClass]="{'rotateL': isOpen}"></i>
+      <i [ngClass]="{'opacity-0': isOpen}"></i>
+      <i [ngClass]="{'rotateR': isOpen}"></i>
+    </div>
+
+
+
+    </div>
+
 </nav>
 <div class="position-fixed start-0 sidenav transition d-flex " [ngClass]="!isOpen?'close':'open'">
   <div class="h-100 w-100 d-flex align-items-center justify-content-center ">
-    <ul class="transition d-flex flex-column align-items-start justify-content-between w-100 h-50 ps-5 p-0 m-0 pb-1">
+    <ul [dir]="arabic ? 'rtl' : 'ltr'" class="transition d-flex flex-column align-items-start justify-content-between w-100 h-50 px-5 p-0 m-0 pb-1">
       <li (click)="isOpen = false"><a (click)="scrollToSection('headerSection')"
-          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>01.</span>HOME</a></li>
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>01.</span>{{languageData.nav.home}}</a></li>
       <li (click)="isOpen = false"><a (click)="scrollToSection('aboutSection')"
-          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>02.</span>ABOUT</a></li>
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>02.</span>{{languageData.nav.about}}</a></li>
       <li (click)="isOpen = false"><a (click)="scrollToSection('skillsSection')"
-          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>02.</span>SKILLS</a></li>
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>02.</span>{{languageData.nav.skills}}</a></li>
       <li (click)="isOpen = false"><a (click)="scrollToSection('projectsSection')"
-          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>03.</span>PROJECTS</a></li>
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>03.</span>{{languageData.nav.projects}}</a></li>
       <li (click)="isOpen = false"><a (click)="scrollToSection('servicesSection')"
-          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>04.</span>SERVICES</a></li>
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>04.</span>{{languageData.nav.services}}</a></li>
       <li (click)="isOpen = false"><a (click)="scrollToSection('contactSection')"
-          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>05.</span>CONTACT</a></li>
+          [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>05.</span>{{languageData.nav.contact}}</a></li>
     </ul>
   </div>
 </div>
 
-
+<div [ngClass]="{'bgb': dark}" class="btnDL d-flex align-items-center justify-content-end pe-3"
+     id="btnDL"
+     (click)="dlAnimate()"
+     (click)="changeMood()"
+     (click)="header.initializeParticles()">
+  <i [ngClass]="{'right bi-sun-fill': !dark, 'left bi-moon-fill': dark}" class="bi"></i>
+</div>
 <div id="headerSection">
-  <app-header (changeTap)="scrollToSection($event)"></app-header>
+  <app-header #header [languageData]="languageData" [color]="color" [dark]="dark" (changeTap)="scrollToSection($event)"></app-header>
 </div>
 <div id="aboutSection">
-  <app-about></app-about>
+  <app-about [languageData]="languageData" [arabic]="arabic"></app-about>
 
 </div>
 <div id="skillsSection">
-  <app-skills></app-skills>
+  <app-skills [languageData]="languageData" [arabic]="arabic"></app-skills>
 
 </div>
 
 <div id="projectsSection">
-  <app-projects></app-projects>
+  <app-projects [languageData]="languageData" [arabic]="arabic"></app-projects>
 
 </div>
 
 <div id="servicesSection">
-  <app-services></app-services>
+  <app-services [languageData]="languageData" [arabic]="arabic"></app-services>
 </div>
 
 <div id="contactSection">
-  <app-contact></app-contact>
+  <app-contact [languageData]="languageData" [arabic]="arabic"></app-contact>
 </div>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { ParticlesService } from 'src/app/services/particles.service';
@@ -9,8 +9,11 @@ declare let particlesJS: any;
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  dd = 'topright';
   @Output() changeTap: EventEmitter<any> = new EventEmitter<any>();
+@Input() languageData:any
+
+@Input() color:any
+@Input() dark:any
 
   constructor(private _common: CommonService,private _Router:Router,private particlesService: ParticlesService) {}
   @ViewChild('particlesContainer') particlesContainer!: ElementRef;
@@ -56,17 +59,18 @@ export class HeaderComponent {
 
   }
   initializeParticles() {
+
     particlesJS('particles-js', {
       particles: {
         number: {
-          value: 80,
+          value: 100,
           density: {
             enable: true,
             value_area: 800
           }
         },
         color: {
-          value: '#ffffff'
+          value: this.color
         },
         shape: {
           type: 'circle',
@@ -101,7 +105,7 @@ export class HeaderComponent {
         line_linked: {
           enable: true,
           distance: 150,
-          color: '#ffffff',
+          color: this.color,
           opacity: 0.4,
           width: 1
         },

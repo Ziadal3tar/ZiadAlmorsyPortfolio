@@ -3,23 +3,29 @@
 
 margin-top: 60px;
   height: auto;
-  background-color: #171717;
+  // background-color: #171717;
+  background-color:var(--bg-color);
 
   width: 100vw;
   p {
     font-size: 20px;
     font-weight: 600;
-    color: white;
+    color:var(--text-color);
+
   }
   ::placeholder {
-    color: rgb(255, 255, 255);
+
+  color:var(--text-color);
+
     opacity: 1;
   }
 
   textarea,
   input {
     outline: none;
-    color: #ffffff;
+    // color: #ffffff;
+  color:var(--text-color);
+border-color: var(--text-color) !important;
   }
   .btns{
     height: 70px;
@@ -33,7 +39,8 @@ margin-top: 60px;
     font-weight: 500;
     width: 50px;
     height: 50px;
-    background: #ffffff;
+    background-color:var(--text-color);
+
     cursor: pointer;
     border: none;
     border-radius: 0px 20px 0px 20px !important;
@@ -60,7 +67,8 @@ margin-top: 60px;
   }
 
   .details {
-    background-color: #171717;
+    background-color:var(--bg-color);
+
 
 height: 85vh;
   }

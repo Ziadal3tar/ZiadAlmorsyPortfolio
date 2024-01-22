@@ -3,9 +3,15 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 @import '~animate.css/animate.css';
-@import url('https://fonts.googleapis.com/css2?family=Nova+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Pacifico&display=swap');
+
+// @import url('https://fonts.googleapis.com/css2?family=Nova+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+;:root {
+  --text-color: #ffffff; // Default text color
+  --bg-color: #171717; // Default text color
+}
 html {
   scroll-behavior: smooth;
 }
@@ -15,14 +21,15 @@ p{
   box-sizing: border-box;
 }
 p,h1,h2,h3,h4,h5,h6{
-  color: #fff;
+  color: var(--text-color)!important;
 }
 body{
-  // background-image: url('../src/assets/image/25097.jpg') !important;
-  // background-position: center;
-  // background-size: cover;
-  font-family: 'Nova Script', system-ui;
-  background-color: #171717;
+
+    // font-family: 'Nova Script', system-ui;
+
+  font-family: 'Aref Ruqaa', serif;
+  // font-family: 'Pacifico', cursive;
+  background-color: var(--bg-color)
 }
 .cursor-pointer{
   cursor: pointer;
@@ -120,6 +127,10 @@ li{
   font-size: 16px;
   padding: 2px 0;
   list-style: none;
+  a{
+  color:var(--text-color);
+
+}
 }
 }
 p{
@@ -156,3 +167,4 @@ color: #c70039;
 .firstT {
   color: #c70039;
 }
+

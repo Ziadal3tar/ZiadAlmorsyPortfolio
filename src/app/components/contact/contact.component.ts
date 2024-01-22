@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from 'src/app/services/common.service';
 
@@ -8,6 +8,8 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
+  @Input() languageData:any
+@Input() arabic:any
   constructor(private _common: CommonService) {}
   senderForm: FormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required]),

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,18 +6,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
+@Input() languageData:any
+@Input() arabic:any
+
   text: Array<String> = [
-    'MeanStack developer',
-    'frontend developer',
-    'backend developer',
-    'freelancer',
+    // 'MeanStack developer',
+    // 'frontend developer',
+    // 'backend developer',
+    // 'freelancer',
   ];
   innerHtml: String = '';
   i: any = 0;
+  constructor(){
+
+
+  }
   ngOnInit(): void {
     this.innerHtml = this.text[this.i];
 
     this.animation();
+    this.text.push(this.languageData.about.Freelancer)
+    this.text.push(this.languageData.about.FrontendDeveloper)
+    this.text.push(this.languageData.about.BackendDeveloper)
+    this.text.push(this.languageData.about.WebDeveloper)
   }
 
   animation() {

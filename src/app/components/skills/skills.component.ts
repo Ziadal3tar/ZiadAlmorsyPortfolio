@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-skills',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class SkillsComponent {
   animat:Boolean=true
+  @Input() languageData:any
+@Input() arabic:any
   ngOnInit(): void {
     this.animation()
   }

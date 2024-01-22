@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-services',
@@ -6,6 +6,8 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
   styleUrls: ['./services.component.scss'],
 })
 export class ServicesComponent {
+  @Input() languageData:any
+@Input() arabic:any
   margin = 0;
   width: any;
   items: any = [
