@@ -5,6 +5,7 @@ section {
 
   .half-1 {
     height: 100vh;
+    @media (max-width: 1000px) {height: auto!important;}
 
     @media (min-width: 0px) and (max-width: 500px) {
 
@@ -133,6 +134,7 @@ section {
   .half-2 {
     height: 100%;
     position: relative;
+    @media (max-width: 1000px) {height: auto!important;}
 
     .animation {
       .shkl1 {

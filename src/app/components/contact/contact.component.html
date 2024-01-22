@@ -1,7 +1,7 @@
 <section id="contact">
   <div class="row h-100">
     <div [formGroup]="senderForm"  class="col-lg-6 col-md-12 p-5 d-flex flex-column align-items-start justify-content-between h-100">
-      <p class="text-white fs-1 fw-bold fa slideInLeft">Say Hello</p>
+      <p class="text-white fs-1 fw-bold fa slideInLeft"><span class="firstT">Say</span> Hello</p>
       <!-- <p class="text-white slideInLeft">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, sunt.</p> -->
       <input type="text" formControlName="name"
         class="border-white w-100 border-0 border-bottom bg-transparent p-3 slideInLeft" placeholder="Your Name">
@@ -10,9 +10,9 @@
       <p *ngIf="emailError" class="text-danger">{{emailError}}</p>
       <textarea name="" formControlName="message" id="" placeholder="Write your message"
         class="border-white vh-22 w-100 border-0 border-bottom bg-transparent p-3 slideInLeft"></textarea>
-      <button class="send w-50 text-black py-2 slideInLeft" (click)="send(senderForm.value)">SEND</button>
+      <button class="send w-50 text-black py-2 slideInLeft mainColor" (click)="send(senderForm.value)">SEND</button>
       <div class=" d-flex flex-column  justify-content-between col-lg-8 col-md-7 col-12">
-        <p class="my-2 text-white slideInLeft text-nowrap fa">FIND WITH ME</p>
+        <p class="my-2 text-white slideInLeft text-nowrap fa"><span class="firstT">FIND</span> WITH ME</p>
         <div class=" d-flex align-items-center justify-content-between btns slideInLeft ">
           <a target="_blank" href="https://www.linkedin.com/in/ziad-alattar-b6a481224/"><button><i
                 class="fa-brands fa-linkedin-in linkedIn-color fs-4"></i></button></a>
@@ -32,12 +32,12 @@
     </div>
     <div class="col-lg-3 col-sm-6 col-12  details p-0">
       <div class="image2"></div>
-      <div class="pt-5 ps-3 pe-2 ">
-        <p class=" fs-1 text-white slideInRight fa">ZIAD ALMORSY</p>
+      <div class="pt-5 px-5 ">
+        <p class=" fs-1 text-white slideInRight fa mb-3"><span class="firstT">ZIAD</span> ALMORSY</p>
         <p class="text-white slideInRight">I am available for freelance work. Connect with me via and call in to my
           account</p>
       </div>
-      <div class="pt-5 ps-3 pe-2 d-flex flex-column align-items-start justify-content-between slideInRight ">
+      <div class="pt-5 px-5 d-flex flex-column align-items-start justify-content-between slideInRight ">
         <p class="text-white "><i class="fa-solid fa-phone fs-6"></i><span class=" mx-2 text-decoration-underline">0127
             0363
             116</span></p>

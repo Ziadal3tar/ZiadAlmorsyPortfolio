@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
   text: Array<String> = [
-    'fullstack developer (mean)',
+    'MeanStack developer',
     'frontend developer',
     'backend developer',
     'freelancer',
