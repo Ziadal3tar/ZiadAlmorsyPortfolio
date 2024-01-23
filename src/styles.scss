@@ -96,6 +96,35 @@ color: #E1306C;
   margin-right: 20px !important;
 }
 
+
+
+.scrollStyleX {
+  overflow-y: hidden;
+  overflow-x: auto;
+  cursor: grab;
+  &.grabbing {
+    cursor: grabbing;
+  }
+}
+
+.scrollStyleX::-webkit-scrollbar {
+  width: 2px;
+  height: 0px;
+}
+
+.scrollStyleX::-webkit-scrollbar-track {
+  background-color: #000000;
+  border-radius: 10px;
+  height: 80% !important;
+  width: 0px;
+}
+
+.scrollStyleX::-webkit-scrollbar-thumb {
+  background-color: #c70039;
+  border-radius: 20px;
+  transition: 1s !important;
+  margin-right: 20px !important;
+}
 .slideInRight{
   animation: slideInRight;
 animation-duration: 1s;

@@ -1,34 +1,55 @@
-<section id="header">
-  <div class=" w-100 header d-flex align-items-end justify-content-center pb-5">
-    <div class="image position-absolute"></div>
-    <p class="mb-5 "><span class="home "><a class="transition text-black" href="home">{{languageData.services.home}} </a> <span><i
-            class="fa-solid fa-angle-right text-black"></i></span> </span> {{languageData.services.services}}</p>
-  </div>
-</section>
 
-<section id="slider" class="">
-  <div class="item px-3" *ngFor="let item of items let i = index"
-    [style.transform]="'translateX(' + (-imageNum * 100) + '%)'">
+<div class="container-fluid mb-5" id="services">
+  <div class="title w-100 text-center">
+    <p>Services</p>
+    <p>Services I offer</p>
+  </div>>
+  <h5>FrontEnd</h5>
+  <div class=" d-flex scrollStyleX" appDragScroll>
+      <div class=" main" *ngFor="let item of frontEndServices let i = index">
+          <div class="box">
+            <div class="our-services">
+              <div class="icon">
+              <i [ngClass]="up ? 'up ' + frontEndIcons[i] : 'down ' + frontEndIcons[i]"></i>
 
-
-
-    <div class="w-100 h-100 details py-3">
-      <div class="icon w-100 d-flex align-items-center justify-content-center"><i class="fs-1 secColor "
-          [ngClass]="item.icon"></i></div>
-      <div class="text text-center px-3 scrollStyle mx-1">
-        <p class="fs-5">{{item.desc}}</p>
+              </div>
+              <h4 class="mb-2">{{item.title}},,</h4>
+              <p>{{item.desc}}</p>
+          </div>
+          </div>
       </div>
+
+  </div>
+
+  <h5>BackEnd</h5>
+  <div class=" d-flex scrollStyleX" appDragScroll>
+      <div class=" main" *ngFor="let item of backEndServices let i = index">
+          <div class="box">
+            <div class="our-services" >
+              <div class="icon" >
+                <i [ngClass]="up ? 'up ' + backEndIcons[i] : 'down ' + backEndIcons[i]"></i>
+
+
+              </div>
+              <h4 class="mb-2">{{item.title}},,</h4>
+              <p>{{item.desc}}</p>
+          </div>
+          </div>
+      </div>
+
+  </div>
+  <!-- <h5>BackEnd</h5>
+
+  <div class="row">
+    <div class=" col-sm-6 col-md-4" *ngFor="let item of frontEndServices let i = index">
+        <div class="box">
+          <div class="our-services" [style.background-image]="'linear-gradient(' + linearGradient1[i] + ')'">
+            <div class="icon" [style.border-radius]="borderRadius1[i]" [style.background-image]="'linear-gradient(' + linearGradient1[i] + ')'"></div>
+            <h4 class="mb-2">{{item.title}},,</h4>
+            <p>{{item.desc}}</p>
+        </div>
+        </div>
     </div>
-  </div>
-</section>
-<div style=" width: 100%;">
-  <div class="position-relative btnDiv d-flex align-items-center justify-content-center">
-    <div class="btnD" (click)="prevSlide()"><i class="bi bi-caret-left-fill fs-4"></i></div>
-    <div class="btnD" (click)="nextSlide()"><i class="bi bi-caret-right-fill fs-4"></i></div>
-  </div>
-  <div class=" w-100 d-flex align-items-center justify-content-center py-1 d-none">
-    <button class=" border-0  rounded-5 p-2 box-shadow btnSlider mx-1 transition"
-      *ngFor="let item of items let i = index" [ngClass]="{'bg-secColor':i==imageNum+1}"
-      ></button>
-  </div>
+
+</div> -->
 </div>

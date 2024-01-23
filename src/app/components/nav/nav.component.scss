@@ -231,7 +231,7 @@ nav {
   border-radius: 0 2px 20px 0;
   transition: 0.1s;
   overflow: hidden;
-
+z-index: 9999999999999;
 
   &::after,
   &::before {

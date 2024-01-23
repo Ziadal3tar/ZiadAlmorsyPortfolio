@@ -20,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RotateTextDirective } from './components/rotate-text.directive';
 import { ParticlesService } from './services/particles.service';
 import { SkillsComponent } from './components/skills/skills.component';
-// import { ParticlesService } from './particles.service';
+import { DragScrollDirective } from './services/drag-scroll.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { SkillsComponent } from './components/skills/skills.component';
     LoadingComponent,
     RotateTextDirective,
     SkillsComponent,
+    DragScrollDirective,
   ],
   imports: [
     BrowserModule,
