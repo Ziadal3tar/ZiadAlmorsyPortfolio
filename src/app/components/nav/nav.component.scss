@@ -245,16 +245,16 @@ z-index: 9999999999999;
 
   }
 
-  &::after {
-    top: 0;
-    background-color: #ff0000;
-  }
+  // &::after {
+  //   top: 0;
+  //   background-color: #ff0000;
+  // }
 
-  &::before {
+  // &::before {
 
-    bottom: 0;
-    background-color: #000000;
-  }
+  //   bottom: 0;
+  //   background-color: #000000;
+  // }
 
   .right, .left {
     transition: 0.5s;
@@ -266,7 +266,7 @@ z-index: 9999999999999;
   }
 
   .left {
-    color: #fff;
+    color: #ffffff;
   }
 }
 .dAnimate {
@@ -278,11 +278,11 @@ z-index: 9999999999999;
   rotate: 8deg;
   // transform: translate(-3px);
 }
-.bgb{
-  &::after{
-    display: none!important;
-  }
-  &::before{
-    display: none!important;
-  }
-}
+// .bgb{
+//   &::after{
+//     display: none!important;
+//   }
+//   &::before{
+//     display: none!important;
+//   }
+// }

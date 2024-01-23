@@ -10,7 +10,7 @@
       <p *ngIf="emailError" class="text-danger">{{emailError}}</p>
       <textarea name="" formControlName="message" id="" placeholder="{{languageData.contact.WRM}}"
         class="border-white vh-22 w-100 border-0 border-bottom bg-transparent p-3 slideInLeft"></textarea>
-      <button class="send w-50 text-black py-2 slideInLeft mainColor" (click)="send(senderForm.value)">{{languageData.contact.send}}</button>
+      <button class="send w-50 text-black py-2 slideInLeft " (click)="send(senderForm.value)">{{languageData.contact.send}}</button>
       <div class=" d-flex flex-column  justify-content-between col-lg-8 col-md-7 col-12">
         <p class="my-2  slideInLeft text-nowrap fa"><span class="firstT">{{languageData.contact.find}}</span> {{languageData.contact.withMe}}</p>
         <div class=" d-flex align-items-center justify-content-between btns slideInLeft ">

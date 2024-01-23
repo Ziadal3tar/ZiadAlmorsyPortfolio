@@ -105,8 +105,8 @@ this.dark = !this.dark
     }else{
 
       this.styleService.setTextColor('#000');
-      this.styleService.setBgColor('#baa9a9');
-      this.styleService.setBgDLbtn('#fff');
+      this.styleService.setBgColor('#e9dddd');
+      this.styleService.setBgDLbtn('#000');
 
     }
   }

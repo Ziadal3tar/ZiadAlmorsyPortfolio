@@ -118,7 +118,8 @@ export class LanguageService {
       ],
     },
     contact: {
-      Hello: 'مرحبا',
+      Hello: 'بك',
+      say: 'مرحبا',
       yourName: 'أسمك',
       yourEmail: 'البريد الالكتروني',
       WRM: 'رسالتك',
@@ -127,7 +128,7 @@ export class LanguageService {
       withMe: 'معي عبر',
       firstName: 'زياد',
       lastName: 'المرسي',
-      text: 'انا متاح للعمل المستقل في اي وقت. تواصل معي من خلال ... ',
+      text: 'انا متاح للعمل المستقل . تواصل معي في اي وقت من خلال ... ',
     },
   };
   EN: any = {
