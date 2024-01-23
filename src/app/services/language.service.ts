@@ -49,6 +49,7 @@ export class LanguageService {
       details: 'تفاصيل',
     },
     services: {
+      ServicesOffer:'خدمات اقدمها',
       frontend: [
         {
           title: 'تحسين أداء الموقع',
@@ -60,7 +61,7 @@ export class LanguageService {
        },
        {
         title: 'دمج المكتبات والأدوات الإضافية',
-        desc: ' لإدارة الحالة ءوالأحداث بكفاة (RxJS) استخدم المكتبات والأدوات الإضافية مثل'
+        desc: 'لإدارة الحالة والأحداث بكفاءة RxJS  استخدم مكتبات وأدوات إضافية مثل '
        },
 
        {
@@ -72,8 +73,8 @@ export class LanguageService {
         desc: 'ضمان توافق وتجاوب جيد لتطبيقات الجوال والأجهزة اللوحية'
        },
        {
-        title: 'تطوير تطبيقات',
-        desc: 'واجهة متعددة اللغات: دعم تطبيقات متعددة اللغات لزيادة إمكانية الوصول'
+        title: 'واجهة متعددة اللغات',
+        desc: ' دعم تطبيقات متعددة اللغات لزيادة إمكانية الوصول'
        },
        {
         title: 'دعم وصيانة مستمرة',
@@ -84,16 +85,17 @@ export class LanguageService {
       backend:[
         {
           title: 'تطوير وصيانة خوادم الويب',
-          desc: ' لدعم تطبيقات الويب (Node.js) بناء وصيانة خوادم الويب باستخدام '
+          desc: 'لدعم تطبيقات الويب  Node.js بناء وصيانة خوادم الويب باستخدام  '
          },
          {
           title: 'إدارة قواعد البيانات',
-          desc: 'دمج Node.js مع قواعد البيانات مثل MongoDB أو MySQL لتخزين البيانات واسترجاعها بكفاءة'
+          desc: 'لتخزين البيانات واسترجاعها بكفاءة MongoDB مع قواعد البيانات مثل Node.js دمج'
+
          },
 
        {
         title: 'تنفيذ واجهة برمجة التطبيقات',
-        desc: 'تطوير وتنفيذ واجهات برمجة التطبيقات (APIs) لتسهيل التفاعل بين الواجهة الأمامية والخلفية للتطبيق.'
+        desc: ' تطوير وتنفيذ واجهات برمجة التطبيقات لتسهيل التفاعل بين الواجهة الأمامية والخلفية للتطبيق'
        },
 
        {
@@ -102,7 +104,7 @@ export class LanguageService {
        },
        {
         title: 'تكنولوجيا الويب في الوقت الحقيقي',
-        desc: 'استخدام مكتبات مثل Socket.io لتحقيق التفاعل في الوقت الفعلي في التطبيقات..'
+        desc: 'لتحقيق التفاعل في الوقت الفعلي في التطبيقات Socket.io استخدام   '
        },
        {
         title: 'تكامل الخدمات الخارجية',
@@ -172,6 +174,8 @@ export class LanguageService {
       details: 'details',
     },
     services: {
+      ServicesOffer:'Services I offer',
+
       frontend: [
         {
           title: 'Enhancing Website Performance',
@@ -212,7 +216,7 @@ export class LanguageService {
          },
        {
         title: 'Database Management',
-        desc: 'Improve loading speed and application performance to ensure a smooth user experience.'
+        desc: 'Integrate Node.js with databases like MongoDB for easy data retrieval New'
        },
        {
         title: 'API Implementation',

@@ -1,6 +1,6 @@
 <section id="contact">
-  <div class="row h-100">
-    <div [formGroup]="senderForm"  class="col-lg-6 col-md-12 p-5 d-flex flex-column align-items-start justify-content-between h-100">
+  <div  class="row h-100">
+    <div [dir]="arabic ? 'rtl' : 'ltr'" [formGroup]="senderForm"  class="col-lg-6 col-md-12 p-5 d-flex flex-column align-items-start justify-content-between h-100">
       <p class=" fs-1 fw-bold fa slideInLeft"><span class="firstT"> {{languageData.contact.say}}</span> {{languageData.contact.Hello}}</p>
       <!-- <p class=" slideInLeft">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, sunt.</p> -->
       <input type="text" formControlName="name"
@@ -32,8 +32,8 @@
     </div>
     <div class="col-lg-3 col-sm-6 col-12  details p-0">
       <div class="image2"></div>
-      <div class="pt-5 px-5 ">
-        <p class=" fs-1  slideInRight fa mb-3"><span class="firstT">{{languageData.contact.firstName}}</span> {{languageData.contact.lastName}}</p>
+      <div [dir]="arabic ? 'rtl' : 'ltr'" class="pt-5 px-5 ">
+        <p  class=" fs-1  slideInRight fa mb-3"><span class="firstT">{{languageData.contact.firstName}}</span> {{languageData.contact.lastName}}</p>
         <p class=" slideInRight">{{languageData.contact.text}}</p>
       </div>
       <div class="pt-5 px-5 d-flex flex-column align-items-start justify-content-between slideInRight ">
