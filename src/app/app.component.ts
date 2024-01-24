@@ -10,6 +10,7 @@ import { LanguageService } from './services/language.service';
 })
 export class AppComponent {
   title = 'portofolio';
+  load:Boolean = false
   constructor(public _common: CommonService,private styleService: StyleService,private _language:LanguageService) {
     this.styleService.textColor$.subscribe((color) => {
       document.documentElement.style.setProperty('--text-color', color);
@@ -23,9 +24,8 @@ export class AppComponent {
     this._language.updateLanguage(false)
   }
   ngOnInit(): void {
-//     this._common.CookiesId().subscribe((data:any)=>{
-// console.log(data);
-
-//     })
+setTimeout(() => {
+  this.load = true
+}, 2200);
   }
 }
