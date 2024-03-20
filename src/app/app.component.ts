@@ -11,7 +11,7 @@ import { LanguageService } from './services/language.service';
 export class AppComponent {
   title = 'portofolio';
   load:Boolean = true
-  open:any = true
+  open:any = false
   constructor(public _common: CommonService,private styleService: StyleService,private _language:LanguageService) {
     this.styleService.textColor$.subscribe((color) => {
       document.documentElement.style.setProperty('--text-color', color);
