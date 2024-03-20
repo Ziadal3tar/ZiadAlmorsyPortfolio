@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonService } from './services/common.service';
 import { StyleService } from './services/style.service';
 import { LanguageService } from './services/language.service';
@@ -10,7 +10,8 @@ import { LanguageService } from './services/language.service';
 })
 export class AppComponent {
   title = 'portofolio';
-  load:Boolean = false
+  load:Boolean = true
+  open:any = true
   constructor(public _common: CommonService,private styleService: StyleService,private _language:LanguageService) {
     this.styleService.textColor$.subscribe((color) => {
       document.documentElement.style.setProperty('--text-color', color);
@@ -23,9 +24,9 @@ export class AppComponent {
     });
     this._language.updateLanguage(false)
   }
-  ngOnInit(): void {
-setTimeout(() => {
-  this.load = true
-}, 2200);
-  }
+//   ngOnInit(): void {
+// setTimeout(() => {
+//   this.load = true
+// }, 2200);
+//   }
 }

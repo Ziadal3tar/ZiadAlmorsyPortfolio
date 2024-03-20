@@ -1,7 +1,5 @@
 
-<app-nav *ngIf="load" id="all"></app-nav>
-
-
+<app-nav *ngIf="load && !open" id="all" (open)="open = $event"></app-nav>
 
 <section *ngIf="!load" id="load">
 <img src="./assets/image/Screenshot_2024-01-24_164803-removebg-preview.png" alt="" srcset="">
@@ -28,3 +26,4 @@
   </ul>
   <p>CODED BY <span>ZIAD ALMORSY</span></p>
 </div>
+<app-control *ngIf="open"></app-control>

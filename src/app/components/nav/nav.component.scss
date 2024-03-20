@@ -286,3 +286,9 @@ z-index: 9999999999999;
 //     display: none!important;
 //   }
 // }
+.passwordTap{
+  z-index: 99 !important;
+  input{
+    outline: none;
+  }
+}

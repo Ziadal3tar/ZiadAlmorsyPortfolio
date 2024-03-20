@@ -30,6 +30,12 @@ export class CommonService {
   deleteProject(id:any):any {
     return this._http.delete(`${this.baseUrl}/deleteProject/${id}`);
   }
+  delete(data:any){
+    return this._http.put(`${this.baseUrl}/deleteImg`,data);
+  }
+  replace(data:any){
+    return this._http.put(`${this.baseUrl}/replaceImg`,data);
+  }
   CookiesId():any {
     return this._http.get(`${this.baseUrl4EV}`);
   }

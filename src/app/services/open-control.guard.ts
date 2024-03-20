@@ -9,14 +9,16 @@ export const openControlGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const password = route.params['password'];
 
-  return httpClient.get<boolean>(`https://portfolio-1s6f0vegh-ziadal3tar.vercel.app/project/open/${password}`).pipe(
-      map((response: any) => {
-        if (response.open) {
+  // return httpClient.get<boolean>(`https://portfolio-1s6f0vegh-ziadal3tar.vercel.app/project/open/${password}`).pipe(
+  //     map((response: any) => {
+  //       console.log(response.open);
+
+  //       if (response.open) {
           return true;
-        } else {
-          router.navigate(['/home']);
-          return false;
-        }
-      })
-    );
+  //       } else {
+  //         router.navigate(['/home']);
+  //         return false;
+  //       }
+  //     })
+  //   );
   }

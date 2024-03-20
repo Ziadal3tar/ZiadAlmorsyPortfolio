@@ -27,8 +27,11 @@ export class ControlComponent {
   updateDropdownSettings: any = {};
 
   name: any;
+  postType: any;
+  replaceIndex: any;
   description: any;
   link: any;
+  itemSelected: any;
   allProject: any[] = [];
   files: any[] = [];
   loading: Boolean = false;
@@ -108,6 +111,9 @@ export class ControlComponent {
     }
 
     this.files = imgs;
+    if (this.postType == 'replace') {
+this.postReplaceImg(this.replaceIndex)
+    }
   }
   add(data: any) {
     this.loading = !this.loading;
@@ -145,7 +151,6 @@ export class ControlComponent {
       });
     } else {
       this._common.addProject(formData).subscribe((data: any) => {
-
         if (data.message == 'added successfully') {
           this.loading = !this.loading;
           location.reload();
@@ -161,6 +166,8 @@ export class ControlComponent {
     let itemData: any = this.allProject.filter(
       (item: any) => item._id == data.item_id
     )[0];
+    console.log(itemData);
+    this.itemSelected = itemData;
     this.name = itemData.name;
     this.link = itemData.link;
     this.description = itemData.description;
@@ -203,5 +210,33 @@ export class ControlComponent {
         location.reload();
       }
     });
+  }
+  deleteImg(i: any) {
+    let Data = {
+      imgId: this.itemSelected.publicImagesIds[i],
+      projectId: this.itemSelected._id,
+      imageIndex: i,
+    };
+    this._common.delete(Data).subscribe((data: any) => {});
+  }
+  replaceImg(i: any) {
+    this.postType = 'replace'
+    this.replaceIndex = i
+
+  }
+  postReplaceImg(i:any){
+    let formData = new FormData();
+    for (let i = 0; i < this.files.length; i++) {
+      const element = this.files[i];
+      formData.append('image', element);
+    }
+
+    formData.append('imgId', this.itemSelected.publicImagesIds[i]);
+    formData.append('projectId', this.itemSelected._id);
+    formData.append('imageIndex', i);
+
+
+    this._common.replace(formData).subscribe((data: any) => {});
+
   }
 }

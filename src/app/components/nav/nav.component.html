@@ -1,13 +1,13 @@
 <nav id="nav"
   class="row m-0 d-flex align-items-center justify-content-between position-relative position-fixed top-0 box-shadow">
-  <div class="col-1 d-flex align-items-center justify-content-center"><a routerLink="/home">
-      <p class=" m-0 logo"><span>z</span>E</p>
+  <div class="col-1 d-flex align-items-center justify-content-center"><a>
+      <p class=" m-0 logo" (click)="changeCode()"><span>z</span>E</p>
     </a></div>
-    <div class=" col-xl-2 col-lg-2 col-md-2 col-sm-4 col-5 d-flex row m-0 align-items-center justify-content-between ">
+  <div class=" col-xl-2 col-lg-2 col-md-2 col-sm-4 col-5 d-flex row m-0 align-items-center justify-content-between ">
 
 
-      <!-- <div class="col-3 mainColor  moods d-flex align-items-center justify-content-center" (click)="changeMood()" ><i [ngClass]="!dark?'right bi-sun-fill':'left bi-moon-fill'" class="bi "></i></div> -->
-      <div class="col-3 lang" (click)="changeLang()" [ngClass]="!arabic?'arabic':'english'"></div>
+    <!-- <div class="col-3 mainColor  moods d-flex align-items-center justify-content-center" (click)="changeMood()" ><i [ngClass]="!dark?'right bi-sun-fill':'left bi-moon-fill'" class="bi "></i></div> -->
+    <div class="col-3 lang" (click)="changeLang()" [ngClass]="!arabic?'arabic':'english'"></div>
     <div class="menu col-3 d-flex  flex-column align-items-center justify-content-between" (click)="isOpen = !isOpen">
       <i [ngClass]="{'rotateL': isOpen}"></i>
       <i [ngClass]="{'opacity-0': isOpen}"></i>
@@ -16,12 +16,13 @@
 
 
 
-    </div>
+  </div>
 
 </nav>
 <div class="position-fixed start-0 sidenav transition d-flex " [ngClass]="!isOpen?'close':'open'">
   <div class="h-100 w-100 d-flex align-items-center justify-content-center ">
-    <ul [dir]="arabic ? 'rtl' : 'ltr'" class="transition d-flex flex-column align-items-start justify-content-between w-100 h-50 px-5 p-0 m-0 pb-1">
+    <ul [dir]="arabic ? 'rtl' : 'ltr'"
+      class="transition d-flex flex-column align-items-start justify-content-between w-100 h-50 px-5 p-0 m-0 pb-1">
       <li (click)="isOpen = false"><a (click)="scrollToSection('headerSection')"
           [ngClass]="{'top': isOpen, 'bot': !isOpen}"><span>01.</span>{{languageData.nav.home}}</a></li>
       <li (click)="isOpen = false"><a (click)="scrollToSection('aboutSection')"
@@ -38,15 +39,13 @@
   </div>
 </div>
 
-<div [ngClass]="{'bgb': dark}" class="btnDL d-flex align-items-center justify-content-end pe-3"
-     id="btnDL"
-     (click)="dlAnimate()"
-     (click)="changeMood()"
-     (click)="header.initializeParticles()">
+<div [ngClass]="{'bgb': dark}" class="btnDL d-flex align-items-center justify-content-end pe-3" id="btnDL"
+  (click)="dlAnimate()" (click)="changeMood()" (click)="header.initializeParticles()">
   <i [ngClass]="{'right bi-sun-fill': !dark, 'left bi-moon-fill': dark}" class="bi"></i>
 </div>
 <div id="headerSection">
-  <app-header #header [languageData]="languageData" [color]="color" [dark]="dark" (changeTap)="scrollToSection($event)"></app-header>
+  <app-header #header [languageData]="languageData" [color]="color" [dark]="dark"
+    (changeTap)="scrollToSection($event)"></app-header>
 </div>
 <div id="aboutSection">
   <app-about [languageData]="languageData" [arabic]="arabic"></app-about>
@@ -68,4 +67,22 @@
 
 <div id="contactSection">
   <app-contact [languageData]="languageData" [arabic]="arabic"></app-contact>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="passwordTap"
+  class="passwordTap opacity-75 position-fixed top-0 start-0 bg-black w-100 h-100 position-relative d-flex align-items-center justify-content-center">
+  <div class="position-absolute bg-white d-flex align-items-center justify-content-center  "><input type="password"
+      class=" mx-3 p-2 border-0 " [(ngModel)]="password" placeholder="password">
+    <p class="cursor-pointer px-3 text-black" (click)="go()">GO</p>
+  </div>
 </div>

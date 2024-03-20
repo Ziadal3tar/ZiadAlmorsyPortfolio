@@ -19,11 +19,11 @@ const routes: Routes = [
   // {path: 'projects', component:ProjectsComponent},
   // {path: 'services', component:ServicesComponent},
   // {path: 'about', component:AboutComponent},
-  {path: 'open/:password',canActivate:[openControlGuard], component:ControlComponent},
+  // {path: 'open/:password',canActivate:[openControlGuard], component:ControlComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

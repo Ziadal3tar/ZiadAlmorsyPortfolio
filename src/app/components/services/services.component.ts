@@ -34,7 +34,6 @@ backEndServices:any
 constructor(private LanguageService:LanguageService){
 this.LanguageService.currentLanguageData.subscribe((data:any)=>{
 this.languageData = data
-console.log(data);
 
 this.frontEndServices = data.services.frontend
 this.backEndServices = data.services.backend
@@ -44,7 +43,6 @@ ngOnInit(): void {
   this.animate()
 }
 animate(){
-  console.log(this.up);
 
   setTimeout(() => {
 this.up = !this.up
