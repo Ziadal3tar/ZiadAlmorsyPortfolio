@@ -63,7 +63,7 @@
 
 
   <div class="slider position-relative" [style.transform]="'translateX(' + (-imageNum * 100) + '%)'">
-    <div *ngFor="let image of project.images; let i = index" class="slide">
+    <div *ngFor="let image of project.images; let i = index" class="slide d-flex align-items-center justify-content-center">
       <img [src]="image" alt="Image {{ i + 1 }}">
     </div>
   </div>

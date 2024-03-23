@@ -93,13 +93,18 @@ color: #fff;
   padding: 100px 0;
 
   .filtered {
-    >div {
-
+    >.image {
+border-radius: 10px;
       background-position: center;
-      background-size: contain;
+      background-size: 100%;
       background-repeat: no-repeat;
-
+      transition: 0.5s;
+      &:hover{
+      background-size: 125% !important;
+      rotate: -5deg !important;
+      }
     }
+
   }
 
   .unFiltered {
@@ -188,7 +193,7 @@ color: #fff;
 }
 
 img {
-  width: 100%;
+  width: auto;
   height: auto;
 }
 
