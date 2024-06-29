@@ -176,6 +176,10 @@ border-radius: 10px;
   position: relative;
   overflow: hidden;
   z-index: 999999;
+  .fa-xmark{
+  color: rgb(138, 101, 101);
+
+  }
 }
 
 .slider {
@@ -195,6 +199,7 @@ border-radius: 10px;
 img {
   width: 100%;
   height: auto;
+  object-fit: none;
 }
 
 .nav-btn {
@@ -205,7 +210,7 @@ img {
   cursor: pointer;
   border: none;
   background: none;
-  color: white;
+  color: rgb(138, 101, 101);
 }
 
 .prev-btn {
