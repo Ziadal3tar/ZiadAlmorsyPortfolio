@@ -1,21 +1,30 @@
 #contact {
   overflow: hidden;
 
-margin-top: 60px;
+  margin-top: 60px;
   height: auto;
   // background-color: #171717;
-  background-color:var(--bg-color);
+  background-color: var(--bg-color);
 
   width: 100vw;
+
   p {
     font-size: 20px;
     font-weight: 600;
-    color:var(--text-color);
+    color: var(--text-color);
 
   }
+
+  .CV {
+    a {
+      color: var(--text-color);
+    }
+
+  }
+
   ::placeholder {
 
-  color:var(--text-color);
+    color: var(--text-color);
 
     opacity: 1;
   }
@@ -25,13 +34,15 @@ margin-top: 60px;
     outline: none;
     cursor: none;
     // color: #ffffff;
-  color:var(--text-color);
-border-color: var(--text-color) !important;
+    color: var(--text-color);
+    border-color: var(--text-color) !important;
   }
-  .btns{
+
+  .btns {
     height: 70px;
 
   }
+
   button {
     transition: 0.3s;
     display: flex;
@@ -40,22 +51,22 @@ border-color: var(--text-color) !important;
     font-weight: 500;
     width: 50px;
     height: 50px;
-    background-color:var(--text-color);
+    background-color: var(--text-color);
 
     cursor: pointer;
     border: none;
-    border-radius: 0px 20px 0px 20px !important;
+    border-radius: 500px 0 500px 500px !important;
 
-    &:hover{
+    &:hover {
       margin-bottom: 20px;
     }
   }
 
   button.send {
     margin: 20px 0;
-    color:var(--bg-color)!important;
+    color: var(--bg-color) !important;
 
-    &:hover{
+    &:hover {
       margin-bottom: 10px;
     }
   }
@@ -70,10 +81,10 @@ border-color: var(--text-color) !important;
   }
 
   .details {
-    background-color:var(--bg-color);
+    background-color: var(--bg-color);
 
 
-height: 85vh;
+    height: 85vh;
   }
 
   .image2 {
@@ -83,6 +94,7 @@ height: 85vh;
     background-position: center;
     background-size: 110%;
     transition: 0.5s !important;
+
     &:hover {
       background-size: 140%;
     }

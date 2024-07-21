@@ -92,14 +92,14 @@ section {
         width: 300px;
       }
       .btn-1 {
-        background-color: #c70039;
+        background-color: #5692cd;
         white-space: nowrap;
         font-weight: 500;
-        border-radius: 0 15px 0 15px !important;
+        border-radius: 500px !important;
 
         &:hover {
           background-color: #fff;
-          color: #c70039 !important;
+          color: #5692cd !important;
 
         }
       }
@@ -107,12 +107,12 @@ section {
       .btn-2 {
         // background-color: #fff;
         background-color:var(--text-color);
-        color: #c70039 !important;
+        color: #5692cd !important;
         font-weight: 500;
-        border-radius: 0 15px 0 15px !important;
+        border-radius: 500px !important;
 
         &:hover {
-          background-color: #c70039;
+          background-color: #5692cd;
           color: #fff !important;
 
         }
@@ -131,7 +131,7 @@ section {
         position: absolute;
         width: 200px;
         height: 200px;
-        background-color: #c70039;
+        background-color: #5692cd;
         border-radius: 50%;
         z-index: 5;
         transition: 0.5s !important;
@@ -141,7 +141,7 @@ section {
         position: absolute;
         width: 200px;
         height: 350px;
-        background-color: #c70039;
+        background-color: #5692cd;
         border-radius: 70px 0 0 0;
         z-index: 1;
         transition: 0.5s !important;
@@ -151,7 +151,7 @@ section {
 
       .shkl13 {
         position: absolute;
-        background-color: #c70039;
+        background-color: #5692cd;
         z-index: 6;
         transition: 0.5s !important;
         width: 80%;
@@ -188,10 +188,10 @@ section {
 
       .imageP {
         position: absolute;
-        width: 100%;
+        width: 125%;
         height: 100%;
-        margin-left: -44px;
-        background-image: url(../../../assets/image/Myproject.png);
+        margin-left: -90px;
+        background-image: url(../../../assets/image/mypic.png);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;

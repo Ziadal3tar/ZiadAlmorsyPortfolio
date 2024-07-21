@@ -33,7 +33,8 @@ export class HeaderComponent {
      shkl2.classList.replace('shkl2', 'shkl22');
     let imageP = <HTMLInputElement>document.getElementById('imageP');
     let doc = <HTMLInputElement>document.getElementById('doc');
-    imageP.style.marginTop = '0';
+    imageP.style.marginTop = '-45px';
+
     setTimeout(() => {
        shkl1.classList.replace('shkl12', 'shkl1');
        shkl2.classList.replace('shkl22', 'shkl2');
@@ -52,7 +53,7 @@ export class HeaderComponent {
     }, 3000);
   }
   toPdf(){
-    window.open('https://res.cloudinary.com/dqaf8jxn5/image/upload/v1703694145/ZiadalmorsyResume_qhie3m.pdf')
+    window.open('https://res.cloudinary.com/dqaf8jxn5/image/upload/v1721571028/ZiadAlmorsyCv_i7796s.pdf')
   }
   click(tap:any){
   this.changeTap.emit(tap);

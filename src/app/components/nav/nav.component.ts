@@ -120,7 +120,7 @@ export class NavComponent {
     if (this.dark) {
       this.styleService.setTextColor('#fff');
       this.styleService.setBgColor('#171717');
-      this.styleService.setBgDLbtn('#c70039');
+      this.styleService.setBgDLbtn('#5692cd');
     } else {
       this.styleService.setTextColor('#000');
       this.styleService.setBgColor('#e9dddd');

@@ -128,7 +128,7 @@ export class LanguageService {
       withMe: 'معي عبر',
       firstName: 'زياد',
       lastName: 'المرسي',
-      text: 'انا متاح للعمل المستقل . تواصل معي في اي وقت من خلال ... ',
+      text: 'انا متاح للعمل الحر . تواصل معي في اي وقت من خلال ... ',
     },
   };
   EN: any = {
@@ -253,7 +253,7 @@ export class LanguageService {
       withMe: 'WITH ME',
       firstName: 'Ziad',
       lastName: 'Almorsy',
-      text: 'I am available for freelance work. Connect with me via and call in to my account',
+      text: 'I am available for freelance work. Connect with me anytime through ...',
     },
   };
 

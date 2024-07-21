@@ -10,7 +10,7 @@ export class StyleService {
 
   private bgColorSubject = new BehaviorSubject<string>('#171717');
   public bgColor$ = this.bgColorSubject.asObservable();
-  private bgDLbtnSubject = new BehaviorSubject<string>('#c70039');
+  private bgDLbtnSubject = new BehaviorSubject<string>('#5692cd');
   public bgDLbtn$ = this.bgDLbtnSubject.asObservable();
   setTextColor(color: string): void {
     this.textColorSubject.next(color);
