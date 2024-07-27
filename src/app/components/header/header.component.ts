@@ -53,7 +53,7 @@ export class HeaderComponent {
     }, 3000);
   }
   toPdf(){
-    window.open('https://res.cloudinary.com/dqaf8jxn5/image/upload/v1721571028/ZiadAlmorsyCv_i7796s.pdf')
+    window.open('https://res.cloudinary.com/dqaf8jxn5/image/upload/v1722091551/ZiadAl3tarCv_ezhcyw.png')
   }
   click(tap:any){
   this.changeTap.emit(tap);
