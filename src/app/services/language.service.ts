@@ -29,7 +29,7 @@ export class LanguageService {
     },
     about: {
       about: 'نبذة عني',
-      pref: 'أنا زياد المرسي العطار، عمري 22 عامًا. لدي خبرة تصل إلى 6 أشهر وأنا من الأشخاص الذين يتعلمون بسرعة. أنا عازم على اكتساب مزيد من الخبرة وتعلم مهارات جديدة. بدأت في تعلم برمجة الويب في عام 2021 من خلال التعلم الذاتي، وأكملت تعلمي لبرمجة الويب في مركز روت.',
+      pref: 'أنا مطور Full-Stack شغوف ومتخصص في تطوير MEAN Stack. لدي أكثر من 6 أشهر من الخبرة، وأتميز بإنشاء تطبيقات ويب ديناميكية وسهلة الاستخدام. عملت على مشاريع متنوعة، بما في ذلك منصات التجارة الإلكترونية، ومواقع البورتفوليو، وأنظمة إدارة المحتوى، مما عزز مهاراتي في تطوير التطبيقات الكاملة. أمتلك قدرة قوية على حل المشكلات، والتكيف مع التحديات الجديدة، والعمل بفعالية ضمن فرق العمل وفق منهجية Agile. أنا ملتزم بالتعلم المستمر وتقديم حلول مبتكرة.',
       Freelancer: '.مستقل',
       FrontendDeveloper: '.مطوِّر واجهة أمامية',
       BackendDeveloper: '.مطوِّر خلفية',
@@ -155,7 +155,7 @@ export class LanguageService {
     about: {
       about: 'About',
       me: 'Me',
-      pref: "I'm Ziad Almorsy Alattar , 22 years old.I have 6 months of experience, and am a fast learner . Am willing to gain more experience and learn new skills . I started learning web programming in 2021 through self-learning, and I completed my learning of web programming at Route Center.",
+      pref: "I am a passionate Full-Stack Developer with expertise in MEAN Stack. With over 6 months of experience, I specialize in creating dynamic, user-friendly web applications. I have worked on various projects, including e-commerce platforms, portfolio websites, and content management systems, which have strengthened my full-stack development skills. I have a strong ability to solve problems, adapt to new challenges, and collaborate effectively within agile  teams. I am committed to continuous learning and delivering innovative solutions.",
       Freelancer: 'Freelancer.',
       FrontendDeveloper: 'Frontend developer.',
       BackendDeveloper: 'Backend developer.',

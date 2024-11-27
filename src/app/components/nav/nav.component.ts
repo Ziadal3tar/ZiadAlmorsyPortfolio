@@ -21,9 +21,9 @@ export class NavComponent {
   color: any = '#fff';
   code: any = 0;
   lastClickTime: any = 0;
-  timeoutId: any
+  timeoutId: any;
   passwordTap: Boolean = false;
-  password: any
+  password: any;
 
   constructor(
     private router: Router,
@@ -102,8 +102,8 @@ export class NavComponent {
   }
   changeLang() {
     if (this.code == 5) {
-      this.passwordTap = true
-      this.code = 0
+      this.passwordTap = true;
+      this.code = 0;
     } else {
       this.arabic = !this.arabic;
       this._language.updateLanguage(this.arabic);
@@ -150,11 +150,11 @@ export class NavComponent {
       this.timeoutId = null; // Reset the timeout ID after execution
     }, 1000);
   }
-go(){
-this._common.open(this.password).subscribe((data:any)=>{
-if (data.open) {
-this.open.emit('true')
-}
-})
-}
+  go() {
+    this._common.open(this.password).subscribe((data: any) => {
+      if (data.open) {
+        this.open.emit('true');
+      }
+    });
+  }
 }

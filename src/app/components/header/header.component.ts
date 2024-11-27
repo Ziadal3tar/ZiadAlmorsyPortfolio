@@ -53,7 +53,7 @@ export class HeaderComponent {
     }, 3000);
   }
   toPdf(){
-    window.open('https://res.cloudinary.com/dqaf8jxn5/image/upload/v1722091551/ZiadAl3tarCv_ezhcyw.png')
+    window.open('https://drive.google.com/file/d/12eOgkdTYYwLxkS5ELRYt5wCiI723x22m/view?usp=drivesdk')
   }
   click(tap:any){
   this.changeTap.emit(tap);
