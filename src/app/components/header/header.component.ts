@@ -53,7 +53,7 @@ export class HeaderComponent {
     }, 3000);
   }
   toPdf(){
-    window.open('https://drive.google.com/file/d/12fABHHJnEhJkvpsKmTl80KxmfbjSsfZE/view')
+    window.open('https://drive.google.com/file/d/19ivZmNoJ8yf7fMe7EjIXPxJ_P4u3B5_-/view')
   }
   click(tap:any){
   this.changeTap.emit(tap);

@@ -8,7 +8,7 @@ export class CommonService {
   baseUrl: any = 'https://be-portfolio-zeta.vercel.app/project';
   // baseUrl4EV: any = 'https://be-portfolio-zeta.vercel.app';
   // baseUrl: any = 'http://localhost:3000/project';
-  baseUrl4EV: any = 'http://localhost:3000/EV';
+  // baseUrl4EV: any = 'http://localhost:3000/EV';
   constructor(private _http: HttpClient) {}
 
   open(password: any) {
@@ -36,7 +36,7 @@ export class CommonService {
   replace(data:any){
     return this._http.put(`${this.baseUrl}/replaceImg`,data);
   }
-  CookiesId():any {
-    return this._http.get(`${this.baseUrl4EV}`);
-  }
+  // CookiesId():any {
+  //   return this._http.get(`${this.baseUrl4EV}`);
+  // }
 }

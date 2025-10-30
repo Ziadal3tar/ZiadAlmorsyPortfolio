@@ -144,14 +144,16 @@ this.postReplaceImg(this.replaceIndex)
     if (this.updateSelectedItems.length != 0) {
       let id = this.updateSelectedItems[0].item_id;
       this._common.updateProject(formData, id).subscribe((data: any) => {
-        if (data.message == 'updated') {
+        console.log(data);
+
+        if (data.message == 'Project updated successfully') {
           this.loading = !this.loading;
           location.reload();
         }
       });
     } else {
       this._common.addProject(formData).subscribe((data: any) => {
-        if (data.message == 'added successfully') {
+        if (data.message == 'Project added successfully') {
           this.loading = !this.loading;
           location.reload();
         }
