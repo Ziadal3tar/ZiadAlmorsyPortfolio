@@ -4,7 +4,7 @@
 overflow: hidden;
   .about {
     span{
-      color: #5692cd;
+      color: #e7902e;
     }
     position: relative;
     font-size: 80px;
@@ -52,8 +52,8 @@ overflow: hidden;
   .animate-charcter {
     text-transform: uppercase;
     background-image: linear-gradient(-225deg,
-        #5692cd 0%,
-        #5692cd 29%,
+        #e7902e 0%,
+        #e7902e 29%,
         #ffffff 67%,
         #ffffff 100%);
     background-size: auto auto;
@@ -92,7 +92,7 @@ overflow: hidden;
 
   .backImg {
 
-background: url(../../../assets/image/stand.jpg) fixed;
+background: url(https://res.cloudinary.com/dqaf8jxn5/image/upload/v1762198525/vagpsw5ap8vtypc2ls2w.png) fixed;
 background-position: 15%;
 background-size: 34%;
     filter: blur(4px);
@@ -103,7 +103,7 @@ background-size: 34%;
     width: 300px !important;
     height: 300px;
     border-radius: 50%;
-    background-image: url(../../../assets/image/side.jpg);
+    background-image: url(https://res.cloudinary.com/dqaf8jxn5/image/upload/v1762198501/uxge9lw2gaeuing5spuw.png);
     background-position: center;
     background-size: cover;
     position: absolute;
