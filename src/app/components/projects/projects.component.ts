@@ -16,7 +16,9 @@ export class ProjectsComponent {
   constructor(private _common: CommonService,private renderer: Renderer2) {}
   ngOnInit(): void {
     this._common.getAllProjects().subscribe((data: any) => {
-      this.projects = data.project.reverse();
+      console.log(data);
+
+      this.projects = data.projects.reverse();
       const arrayJSON = JSON.stringify(data.project);
       localStorage.setItem('allProjects', arrayJSON);
     });

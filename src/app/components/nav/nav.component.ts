@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { StyleService } from 'src/app/services/style.service';
 import { LanguageService } from 'src/app/services/language.service';
@@ -11,150 +11,95 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
-  isOpen: Boolean = false;
-  dark: Boolean = true;
-  arabic: Boolean = false;
-  @Output() open: EventEmitter<any> = new EventEmitter<any>();
+  @Output() open = new EventEmitter<void>();
 
-  tap: any = 'header';
+  isOpen = false;
+  dark = true;
+  arabic = false;
   languageData: any;
-  color: any = '#fff';
-  code: any = 0;
-  lastClickTime: any = 0;
+  color = '#fff';
+  code = 0;
+  lastClickTime = 0;
   timeoutId: any;
-  passwordTap: Boolean = false;
-  password: any;
+  passwordTap = false;
+  password = '';
 
   constructor(
-    private router: Router,
     private viewportScroller: ViewportScroller,
     private styleService: StyleService,
-    private _language: LanguageService,
-    private _common: CommonService
+    private language: LanguageService,
+    private common: CommonService,
+    private router: Router
   ) {
-    this._language.currentLanguageData.subscribe((data: any) => {
-      this.languageData = data;
-    });
-    this.code = 0;
-    this.lastClickTime = 0;
-    this.timeoutId = null;
+    this.language.currentLanguageData.subscribe((data) => (this.languageData = data));
   }
-  ngOnInit(): void {}
+
   ngAfterViewInit(): void {
     this.color = '#000';
   }
-  dlAnimate() {
-    let div = document.getElementById('btnDL');
-    div?.classList.add('dAnimate');
-    setTimeout(() => {
-      div?.classList.add('lAnimate');
-      div?.classList.remove('dAnimate');
+
+  dlAnimate(): void {
+    const div = document.getElementById('btnDL');
+    if (!div) return;
+
+    const seq = ['dAnimate', 'lAnimate'];
+    seq.forEach((cls, i) => {
       setTimeout(() => {
-        div?.classList.add('dAnimate');
-        div?.classList.remove('lAnimate');
-        setTimeout(() => {
-          div?.classList.add('lAnimate');
-          div?.classList.remove('dAnimate');
-          setTimeout(() => {
-            div?.classList.remove('lAnimate');
-          }, 200);
-        }, 150);
-      }, 100);
-    }, 50);
+        div.classList.toggle(cls);
+      }, i * 200);
+    });
   }
 
   scrollToSection(sectionId: string): void {
-    const targetElement = document.getElementById(sectionId);
+    const target = document.getElementById(sectionId);
+    if (!target) return;
 
-    if (targetElement) {
-      const targetPosition = targetElement.offsetTop;
-      const currentPosition = this.viewportScroller.getScrollPosition()[1];
-      const distance = targetPosition - currentPosition;
-      const duration = 1000; // 5 seconds
+    const start = this.viewportScroller.getScrollPosition()[1];
+    const distance = target.offsetTop - start;
+    const duration = 800;
+    const startTime = performance.now();
 
-      let startTime: number;
-
-      const animateScroll = (currentTime: number) => {
-        if (!startTime) {
-          startTime = currentTime;
-        }
-
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
-        const easing = this.easeInOutQuad(progress);
-
-        this.viewportScroller.scrollToPosition([
-          0,
-          currentPosition + distance * easing,
-        ]);
-
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animateScroll);
-        }
-      };
-
-      requestAnimationFrame(animateScroll);
-    }
+    const animate = (currentTime: number) => {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const ease = progress < 0.5 ? 2 * progress ** 2 : -1 + (4 - 2 * progress) * progress;
+      this.viewportScroller.scrollToPosition([0, start + distance * ease]);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
   }
 
-  private easeInOutQuad(t: number): number {
-    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-  }
-  changeLang() {
-    if (this.code == 5) {
+  changeLang(): void {
+    if (this.code >= 5) {
       this.passwordTap = true;
       this.code = 0;
-    } else {
-      this.arabic = !this.arabic;
-      this._language.updateLanguage(this.arabic);
+      return;
     }
+    this.arabic = !this.arabic;
+    this.language.updateLanguage(this.arabic);
   }
-  changeMood() {
-    if (!this.dark) {
-      this.color = '#000';
-    } else {
-      this.color = '#fff';
-    }
+
+  changeMood(): void {
     this.dark = !this.dark;
+    this.color = this.dark ? '#fff' : '#000';
+    this.styleService.setTextColor(this.color);
+    this.styleService.setBgColor(this.dark ? '#171717' : '#e9dddd');
+    this.styleService.setBgDLbtn(this.dark ? '#e7902e' : '#000');
+  }
 
-    if (this.dark) {
-      this.styleService.setTextColor('#fff');
-      this.styleService.setBgColor('#171717');
-      this.styleService.setBgDLbtn('#e7902e');
+  changeCode(): void {
+    const now = Date.now();
+    this.code = now - this.lastClickTime < 1000 ? this.code + 1 : 0;
+    this.lastClickTime = now;
+    clearTimeout(this.timeoutId);
+    this.timeoutId = setTimeout(() => (this.timeoutId = null), 1000);
+  }
+go(): void {
+  this.common.open(this.password).subscribe((res: any) => {
+    if (res.open) {
+     this.router.navigate([`/open/${this.password}`]);
     } else {
-      this.styleService.setTextColor('#000');
-      this.styleService.setBgColor('#e9dddd');
-      this.styleService.setBgDLbtn('#000');
+      alert('Incorrect password');
     }
-  }
-  changeCode() {
-    const currentTime = Date.now();
-    const timeSinceLastClick = currentTime - this.lastClickTime;
-
-    if (timeSinceLastClick < 1000) {
-      // Increment code if less than 1 second has passed since last click
-      this.code++;
-    } else {
-      // Reset code to 0 if 1 second or more has passed since last click
-      this.code = 0;
-    }
-
-    this.lastClickTime = currentTime;
-
-    // Clear the previous timeout if it exists
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId);
-    }
-
-    this.timeoutId = setTimeout(() => {
-      this.timeoutId = null; // Reset the timeout ID after execution
-    }, 1000);
-  }
-  go() {
-    this._common.open(this.password).subscribe((data: any) => {
-      if (data.open) {
-        this.open.emit('true');
-      }
-    });
-  }
+  });
+}
 }

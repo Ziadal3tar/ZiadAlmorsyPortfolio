@@ -1,244 +1,266 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommonService } from 'src/app/services/common.service';
+
 @Component({
   selector: 'app-control',
   templateUrl: './control.component.html',
-  styleUrls: ['./control.component.scss'],
+  styleUrls: ['./control.component.scss']
 })
-export class ControlComponent {
-  projectForm: FormGroup = new FormGroup({
-    name: new FormControl(null, [Validators.required]),
-    description: new FormControl(null, [Validators.required]),
-    link: new FormControl(null, [Validators.required]),
+export class ControlComponent implements OnInit {
+
+  // ✅ FormGroup
+  projectForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    link: new FormControl('', Validators.required),
   });
 
-  technologiesDropdownList: any = [];
-  technologiesSelectedItems: any = [];
-  technologiesDropdownSettings: any = {};
+  // ✅ Dropdown Lists
+  technologiesDropdownList: any[] = [];
+  typeDropdownList: any[] = [];
+  updateDropdownList: any[] = [];
 
-  typeDropdownList: any = [];
-  typeSelectedItems: any = [];
-  typeDropdownSettings: any = {};
+  // ✅ Selected Items
+  technologiesSelectedItems: any[] = [];
+  typeSelectedItems: any[] = [];
+  updateSelectedItems: any[] = [];
 
-  updateDropdownList: any = [];
-  updateSelectedItems: any = [];
-  updateDropdownSettings: any = {};
+  // ✅ Dropdown Settings
+  technologiesDropdownSettings: any;
+  typeDropdownSettings: any;
+  updateDropdownSettings: any;
 
-  name: any;
-  postType: any;
-  replaceIndex: any;
-  description: any;
-  link: any;
-  itemSelected: any;
+  // ✅ Project Data
   allProject: any[] = [];
-  files: any[] = [];
-  loading: Boolean = false;
-  btnText: any = 'ADD';
-  confirmRemove: Boolean = false;
-  btnRemove: Boolean = false;
+  itemSelected: any = null;
+  files: File[] = [];
+  name: string = '';
+  description: string = '';
+  link: string = '';
+  btnText: string = 'ADD';
+  btnRemove: boolean = false;
+  confirmRemove: boolean = false;
+  postType: string = '';
+  replaceIndex: number | null = null;
+  loading: boolean = false;
+
   constructor(private _common: CommonService) {}
 
   ngOnInit(): void {
-    this._common.getAllProjects().subscribe((data: any) => {
-      this.allProject = data.project;
-      let arr = [];
-      for (let i = 0; i < data.project.length; i++) {
-        const element = data.project[i];
+    this.loadProjects();
+    this.setupDropdowns();
+  }
 
-        let opj = { item_id: element._id, item_text: element.name };
-        arr.push(opj);
-      }
-      this.updateDropdownList = arr;
-      this.updateDropdownSettings = {
-        singleSelection: true,
-        idField: 'item_id',
-        textField: 'item_text',
+  // ✅ تحميل جميع المشاريع
+  private loadProjects(): void {
+    this._common.getAllProjects().subscribe({
+      next: (data: any) => {
+        this.allProject = data.projects || [];
+        this.updateDropdownList = this.allProject.map((project) => ({
+          item_id: project._id,
+          item_text: project.name,
+        }));
 
-        itemsShowLimit: 3,
-        allowSearchFilter: true,
-      };
+        this.updateDropdownSettings = {
+          singleSelection: true,
+          idField: 'item_id',
+          textField: 'item_text',
+          itemsShowLimit: 3,
+          allowSearchFilter: true,
+        };
+      },
+      error: (err) => console.error('Failed to load projects:', err)
     });
+  }
 
+  // ✅ إعداد قوائم الاختيار
+  private setupDropdowns(): void {
     this.technologiesDropdownList = [
-      { item_id: 1, item_text: 'html' },
-      { item_id: 2, item_text: 'css' },
-      { item_id: 3, item_text: 'scss' },
-      { item_id: 4, item_text: 'javascript' },
-      { item_id: 5, item_text: 'bootstrap' },
-      { item_id: 6, item_text: 'angular' },
-      { item_id: 7, item_text: 'node.js' },
-      { item_id: 8, item_text: 'express' },
-      { item_id: 9, item_text: 'mongoDB' },
-      { item_id: 10, item_text: 'socket.io' },
+      { item_id: 1, item_text: 'HTML' },
+      { item_id: 2, item_text: 'CSS' },
+      { item_id: 3, item_text: 'SCSS' },
+      { item_id: 4, item_text: 'JavaScript' },
+      { item_id: 5, item_text: 'Bootstrap' },
+      { item_id: 6, item_text: 'Angular' },
+      { item_id: 7, item_text: 'Node.js' },
+      { item_id: 8, item_text: 'Express' },
+      { item_id: 9, item_text: 'MongoDB' },
+      { item_id: 10, item_text: 'Socket.io' },
     ];
 
     this.typeDropdownList = [
-      { item_id: 1, item_text: 'frontend' },
-      { item_id: 2, item_text: 'backend' },
-      { item_id: 3, item_text: 'angular' },
-      { item_id: 4, item_text: 'pure javascript' },
+      { item_id: 1, item_text: 'Frontend' },
+      { item_id: 2, item_text: 'Backend' },
+      { item_id: 3, item_text: 'Angular' },
+      { item_id: 4, item_text: 'Pure JavaScript' },
     ];
 
-    this.technologiesDropdownSettings = {
+    const sharedSettings = {
       singleSelection: false,
       idField: 'item_id',
       textField: 'item_text',
       selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
+      unSelectAllText: 'Unselect All',
       itemsShowLimit: 3,
       allowSearchFilter: true,
     };
-    this.typeDropdownSettings = {
-      singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: true,
-    };
+
+    this.technologiesDropdownSettings = sharedSettings;
+    this.typeDropdownSettings = sharedSettings;
   }
-  upload(event: any) {
-    const { files } = event.target;
-    this.files = files;
-    const imgs: any[] = [];
-    for (let i = 0; i < this.files.length; i++) {
-      const element = this.files[i];
 
-      imgs.push(element);
-    }
+  // ✅ رفع الصور
+  upload(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (!input.files) return;
 
-    this.files = imgs;
-    if (this.postType == 'replace') {
-this.postReplaceImg(this.replaceIndex)
+    this.files = Array.from(input.files);
+    if (this.postType === 'replace' && this.replaceIndex !== null) {
+      this.postReplaceImg(this.replaceIndex);
     }
   }
-  add(data: any) {
-    this.loading = !this.loading;
 
-    let formData = new FormData();
+  // ✅ إضافة / تعديل مشروع
+  add(data: any): void {
+    if (this.projectForm.invalid) return;
 
-    let types: any = [];
+    this.loading = true;
+    const formData = this.buildFormData(data);
 
-    for (let i = 0; i < this.typeSelectedItems.length; i++) {
-      const element = this.typeSelectedItems[i];
-      types.push(element.item_text);
+    if (this.updateSelectedItems.length) {
+      const id = this.updateSelectedItems[0].item_id;
+      this._common.updateProject(id,formData).subscribe({
+        next: (res: any) => {
+          this.loading = false;
+          if (res.message === 'Project updated successfully') {
+            this.resetForm();
+            this.loadProjects();
+          }
+        },
+        error: (err) => (this.loading = false)
+      });
+    } else {
+      this._common.addProject(formData).subscribe({
+        next: (res: any) => {
+          this.loading = false;
+          if (res.message === 'Project added successfully') {
+            this.resetForm();
+            this.loadProjects();
+          }
+        },
+        error: (err) => (this.loading = false)
+      });
     }
+  }
 
-    let technologies: any = [];
-    for (let i = 0; i < this.technologiesSelectedItems.length; i++) {
-      const element = this.technologiesSelectedItems[i];
-      technologies.push(element.item_text);
-    }
-    for (let i = 0; i < this.files.length; i++) {
-      const element = this.files[i];
-      formData.append('image', element);
-    }
-    formData.append('types', types);
-    formData.append('technologies', technologies);
+  // ✅ بناء بيانات المشروع
+  private buildFormData(data: any): FormData {
+    const formData = new FormData();
+    const types = this.typeSelectedItems.map((t) => t.item_text);
+    const technologies = this.technologiesSelectedItems.map((t) => t.item_text);
+
+    this.files.forEach((file) => formData.append('image', file));
+    formData.append('types', types.join(','));
+    formData.append('technologies', technologies.join(','));
     formData.append('name', data.name);
     formData.append('description', data.description);
     formData.append('link', data.link);
-    if (this.updateSelectedItems.length != 0) {
-      let id = this.updateSelectedItems[0].item_id;
-      this._common.updateProject(formData, id).subscribe((data: any) => {
-        console.log(data);
 
-        if (data.message == 'Project updated successfully') {
-          this.loading = !this.loading;
-          location.reload();
-        }
-      });
-    } else {
-      this._common.addProject(formData).subscribe((data: any) => {
-        if (data.message == 'Project added successfully') {
-          this.loading = !this.loading;
-          location.reload();
-        }
-      });
-    }
+    return formData;
   }
-  onItemSelect(data: any) {
+
+  // ✅ عند اختيار مشروع للتعديل
+  onItemSelect(event: any): void {
     this.btnRemove = true;
     this.btnText = 'UPDATE';
-    this.technologiesSelectedItems = [];
-    this.typeSelectedItems = [];
-    let itemData: any = this.allProject.filter(
-      (item: any) => item._id == data.item_id
-    )[0];
-    console.log(itemData);
+    const itemData = this.allProject.find((p) => p._id === event.item_id);
     this.itemSelected = itemData;
+
+    if (!itemData) return;
     this.name = itemData.name;
     this.link = itemData.link;
     this.description = itemData.description;
-    for (let i = 0; i < itemData?.technologies?.length; i++) {
-      const element = itemData?.technologies[i];
-      for (let x = 0; x < this.technologiesDropdownList.length; x++) {
-        const elementX = this.technologiesDropdownList[x];
-        if (elementX.item_text == element) {
-          this.technologiesSelectedItems.push(elementX);
-        }
-      }
-    }
-    for (let i = 0; i < itemData?.types?.length; i++) {
-      const element = itemData?.types[i];
-      for (let x = 0; x < this.typeDropdownList.length; x++) {
-        const elementX = this.typeDropdownList[x];
-        if (elementX.item_text == element) {
-          this.typeSelectedItems.push(elementX);
-        }
-      }
-    }
-  }
-  onDeSelect(event: any) {
-    this.btnRemove = false;
 
-    this.typeSelectedItems = [];
-    this.technologiesSelectedItems = [];
-    this.files = [];
-    this.name = '';
-    this.description = '';
-    this.link = '';
-    this.btnText = 'ADD';
+    this.technologiesSelectedItems = this.technologiesDropdownList.filter((el) =>
+      itemData.technologies.includes(el.item_text)
+    );
+    this.typeSelectedItems = this.typeDropdownList.filter((el) =>
+      itemData.types.includes(el.item_text)
+    );
   }
-  deleteProject() {
-    this.loading = !this.loading;
-    let id = this.updateSelectedItems[0].item_id;
-    this._common.deleteProject(id).subscribe((data: any) => {
-      if (data.message == 'deleted') {
-        this.loading = !this.loading;
-        location.reload();
-      }
+
+  // ✅ عند إزالة المشروع من القائمة
+  onDeSelect(event?: any): void {
+    this.resetForm();
+  }
+
+  // ✅ حذف مشروع كامل
+  deleteProject(): void {
+    if (!this.updateSelectedItems.length) return;
+    this.loading = true;
+
+    const id = this.updateSelectedItems[0].item_id;
+    this._common.deleteProject(id).subscribe({
+      next: (res: any) => {
+        this.loading = false;
+        if (res.message === 'deleted') {
+          this.resetForm();
+          this.loadProjects();
+        }
+      },
+      error: (err) => (this.loading = false)
     });
   }
-  deleteImg(i: any) {
-    let Data = {
+
+  // ✅ حذف صورة
+  deleteImg(i: number): void {
+    if (!this.itemSelected) return;
+    const Data = {
       imgId: this.itemSelected.publicImagesIds[i],
       projectId: this.itemSelected._id,
       imageIndex: i,
     };
-    this._common.delete(Data).subscribe((data: any) => {});
+    this._common.deleteImage(Data).subscribe({
+      next: () => {
+        this.itemSelected.images.splice(i, 1);
+        this.itemSelected.publicImagesIds.splice(i, 1);
+      },
+    });
   }
-  replaceImg(i: any) {
-    this.postType = 'replace'
-    this.replaceIndex = i
 
+  // ✅ تبديل صورة
+  replaceImg(i: number): void {
+    this.postType = 'replace';
+    this.replaceIndex = i;
   }
-  postReplaceImg(i:any){
-    let formData = new FormData();
-    for (let i = 0; i < this.files.length; i++) {
-      const element = this.files[i];
-      formData.append('image', element);
-    }
 
+  // ✅ إرسال الصورة الجديدة للاستبدال
+  private postReplaceImg(i: number): void {
+    if (!this.files.length || !this.itemSelected) return;
+    const formData = new FormData();
+    formData.append('image', this.files[0]);
     formData.append('imgId', this.itemSelected.publicImagesIds[i]);
     formData.append('projectId', this.itemSelected._id);
-    formData.append('imageIndex', i);
+    formData.append('imageIndex', i.toString());
 
+    this._common.replaceImage(formData).subscribe({
+      next: () => this.loadProjects()
+    });
+  }
 
-    this._common.replace(formData).subscribe((data: any) => {});
-
+  // ✅ إعادة ضبط النموذج
+  private resetForm(): void {
+    this.projectForm.reset();
+    this.name = '';
+    this.description = '';
+    this.link = '';
+    this.files = [];
+    this.btnText = 'ADD';
+    this.btnRemove = false;
+    this.itemSelected = null;
+    this.updateSelectedItems = [];
+    this.technologiesSelectedItems = [];
+    this.typeSelectedItems = [];
   }
 }
