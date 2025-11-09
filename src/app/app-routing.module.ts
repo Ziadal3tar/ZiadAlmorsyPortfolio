@@ -13,14 +13,12 @@ import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-{ path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home',  component: NavComponent },
 
   // ✅ مسار محمي
   { path: 'open/:password', canActivate: [openControlGuard], component: ControlComponent },
 
   // ❌ مفيش داعي لمجرد "control" لو هتستخدم الباسورد
-  { path: '**', redirectTo: '/home' },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
