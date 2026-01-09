@@ -41,6 +41,8 @@
 
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
@@ -88,6 +90,8 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+    @media (max-width: 992px) {
+    align-items: center;}
 }
 
 .avatar {
