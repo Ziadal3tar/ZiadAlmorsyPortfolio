@@ -16,6 +16,10 @@
     grid-template-columns: 0.8fr 1.1fr;
       padding: 0 8%;
   align-items: center;
+  @media (min-width: 992px) and (max-width: 1680px) {
+    grid-template-columns: 0.8fr 1.1fr;
+
+  }
 
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
@@ -50,6 +54,7 @@
   @media (max-width: 992px) {
     font-size: 56px;
   }
+
 }
 
 /* Animated Role */
@@ -116,6 +121,9 @@
 width: 120px;
         height: 210px;
   }
+      @media (min-width: 992px) and (max-width: 1680px) {
+            width: 110px;
+    height: 190px;}
   @media (max-width: 500px) {
 width: 100px;
         height: 190px;
@@ -138,6 +146,11 @@ width: 100px;
         padding: 0 0 0 40px;
         font-size: 85px;
   }
+      @media (min-width: 992px) and (max-width: 1680px) {
+                padding: 0 0 0 40px;
+    
+  font-size: 65px;
+}
   @media (max-width: 500px) {
         padding: 0 0 0 40px;
         font-size: 55px;
