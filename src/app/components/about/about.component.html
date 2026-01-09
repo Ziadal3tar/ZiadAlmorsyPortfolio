@@ -1,21 +1,38 @@
+<section id="about" class="about-identity">
+  <div class="identity-grid">
 
-<section id="about"   >
-  <div class="row h-100 flex-lg-wrap flex-wrap-reverse">
-    <div    class="col-xl-6 col-lg-6 col-md-12 my-lg-0 my-5 vh-100 d-flex flex-column align-items-start justify-content-center ps-5">
-    <div class="w-auto h-auto ">
-      <p [dir]="arabic ? 'rtl' : 'ltr'" class="about w-100 pe-2 "><span>{{languageData.about.about}}</span> {{languageData.about.me}}</p>
-      <div class=" w-ani position-relative  d-flex align-items-center " id="ani">
-        <p  class="title transition animate-charcter  text-capitalize" [innerHTML]="innerHtml"></p>
+    <!-- Left -->
+    <div class="identity-text" [dir]="arabic ? 'rtl' : 'ltr'">
+
+      <span class="identity-label">
+        {{ languageData.about.about }}
+      </span>
+
+      <h1 class="identity-name">
+        {{ languageData.about.me }}
+      </h1>
+
+      <div class="identity-role">
+        <span [innerHTML]="innerHtml"></span>
       </div>
-      <p [dir]="arabic ? 'rtl' : 'ltr'" class="par pe-2">{{languageData.about.pref}}</p>
+
+      <p class="identity-desc">
+        {{ languageData.about.pref }}
+      </p>
+
     </div>
+
+    <!-- Right -->
+    <div class="identity-visual">
+      <div class="image-mask">
+        <img
+          src="https://res.cloudinary.com/dqaf8jxn5/image/upload/v1762198501/uxge9lw2gaeuing5spuw.png"
+          alt="Profile"
+        />
+      </div>
+
+      <div class="identity-bg-text">ABOUT</div>
     </div>
-    <div class="col-xl-6 col-lg-6 col-12 row m-0  position-relative my-lg-0 my-5 front">
-      <!-- <div class="col-5 d-flex align-items-center justify-content-end position-relative"
-        > -->
-        <div class="frontImg"></div>
-      <!-- </div> -->
-      <div class="col-6 offset-6 backImg h-100"></div>
-    </div>
+
   </div>
 </section>

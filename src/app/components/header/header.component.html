@@ -2,17 +2,57 @@
 <section class="row m-0 " >
 
   <div class="row m-0 flex-column-reverse flex-lg-row" #particlesContainer>
-    <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center flex-column half-1">
-      <div class="col-12 d-flex flex-column align-items-center justify-content-evenly m-0">
-        <p class="par-2 slideInLeft">{{languageData.header.firstName}}<span class="mainColor"> {{languageData.header.lastName}}</span></p>
-      </div>
-      <div appRotateText [rotateArray]="[languageData.header.Freelancer, languageData.header.WebDeveloper, languageData.header.FrontendDeveloper, languageData.header.BackendDeveloper, languageData.header.MeanStackDeveloper]" [rotatePeriod]="1200"></div>
 
-      <div class="btns d-flex align-items-center justify-content-between my-2  slideInLeft">
-        <button class=" btn btn-1 text-white rounded-0 px-3 rounded-2" routerLink="/projects" (click)="click('projectsSection')">{{languageData.header.myProject}}</button>
-        <button class=" btn btn-2 text-white rounded-0 px-3 rounded-2" routerLink="/contact" (click)="click('contactSection')"> {{languageData.header.contact}}</button>
+
+
+    
+    <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center flex-column half-1">
+
+  <div class="hero-text">
+
+    <p class="hero-name slideInLeft">
+      {{languageData.header.firstName}}
+      <span>{{languageData.header.lastName}}</span>
+    </p>
+
+    <div class="hero-roles">
+      <div
+        appRotateText
+        [rotateArray]="[
+          languageData.header.Freelancer,
+          languageData.header.WebDeveloper,
+          languageData.header.FrontendDeveloper,
+          languageData.header.BackendDeveloper,
+          languageData.header.MeanStackDeveloper
+        ]"
+        [rotatePeriod]="1200">
       </div>
     </div>
+
+    <div class="hero-actions slideInLeft">
+      <button
+        class="btn-primary"
+        routerLink="/projects"
+        (click)="click('projectsSection')">
+        {{languageData.header.myProject}}
+      </button>
+
+      <button
+        class="btn-secondary"
+        routerLink="/contact"
+        (click)="click('contactSection')">
+        {{languageData.header.contact}}
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
     <div class="col-lg-6 col-md-12 vh-100 d-flex align-items-start align-items-lg-center justify-content-center half-2 p-0 m-0 slideInRight">
 
       <div (click)="toPdf()" class="col-12 row m-0 animation d-flex align-items-center justify-content-center">

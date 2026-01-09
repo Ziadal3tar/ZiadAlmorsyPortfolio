@@ -8,7 +8,7 @@ export class StyleService {
   private textColorSubject = new BehaviorSubject<string>('#ffffff');
   public textColor$ = this.textColorSubject.asObservable();
 
-  private bgColorSubject = new BehaviorSubject<string>('#171717');
+  private bgColorSubject = new BehaviorSubject<string>('#05070d');
   public bgColor$ = this.bgColorSubject.asObservable();
   private bgDLbtnSubject = new BehaviorSubject<string>('#e7902e');
   public bgDLbtn$ = this.bgDLbtnSubject.asObservable();

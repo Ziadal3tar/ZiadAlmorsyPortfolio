@@ -1,33 +1,37 @@
 <section *ngIf="project as p" class="project-details">
 
+  <!-- Back -->
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
   <!-- HERO -->
   <section
     class="hero"
     [style.backgroundImage]="'url(' + activeHeroImage + ')'"
   >
-    <div class="overlay">
+    <div class="hero-overlay">
       <span class="badge">{{ p.types?.[0] }}</span>
+
       <h1>{{ p.name }}</h1>
       <p>{{ p.description }}</p>
 
       <div class="actions">
         <a [href]="p.link" target="_blank">Live Demo</a>
-        <a [href]="p.code" target="_blank">GitHub</a>
+        <a (click)="git(p.link)">GitHub</a>
       </div>
     </div>
   </section>
 
   <!-- INFO -->
   <section class="info">
-    <div class="left">
-      <h2>Project Overview</h2>
+    <div class="overview">
+      <h2>Overview</h2>
       <p>{{ p.description }}</p>
     </div>
 
-    <div class="right">
-      <div class="meta">
-        <span>Technologies : </span>
-        <strong>{{ p.technologies.join(', ') }}</strong>
+    <div class="meta">
+      <h3>Technologies</h3>
+      <div class="tags">
+        <span *ngFor="let tech of p.technologies">{{ tech }}</span>
       </div>
     </div>
   </section>
@@ -35,11 +39,25 @@
   <!-- GALLERY -->
   <section class="gallery">
     <img
-      *ngFor="let img of p.images"
+      *ngFor="let img of project.images; let i = index"
       [src]="img"
-      (click)="setHeroImage(img)"
-      [class.active]="img === activeHeroImage"
+      (click)="openViewer(i)"
     />
   </section>
 
 </section>
+
+<!-- VIEWER -->
+<div
+  class="viewer"
+  *ngIf="isViewerOpen"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+>
+  <button class="close" (click)="closeViewer()">✕</button>
+  <button class="nav left" (click)="prev()">‹</button>
+
+  <img [src]="project.images[currentImageIndex]" />
+
+  <button class="nav right" (click)="next()">›</button>
+</div>

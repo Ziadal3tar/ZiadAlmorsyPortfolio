@@ -1,42 +1,48 @@
+<section class="services-neo" id="services">
+  <div class="container-fluid">
 
-<div class="container-fluid mb-5" id="services">
-  <div class="title w-100 text-center">
-    <p>Services</p>
-    <p>{{languageData.services.ServicesOffer}}</p>
-  </div>>
-  <h5>FrontEnd</h5>
-  <div class=" d-flex scrollStyleX" appDragScroll>
-      <div class=" main" *ngFor="let item of frontEndServices let i = index">
-          <div class="box">
-            <div class="our-services">
-              <div class="icon">
-              <i [ngClass]="up ? 'up ' + frontEndIcons[i] : 'down ' + frontEndIcons[i]"></i>
+    <!-- Title -->
+    <header class="neo-header text-center">
+      <span class="neo-badge">What I Do</span>
+      <h2>{{ languageData.services.ServicesOffer }}</h2>
+      <p>High quality frontend & backend solutions built with passion</p>
+    </header>
 
-              </div>
-              <h4 class="mb-2">{{item.title}},,</h4>
-              <p>{{item.desc}}</p>
-          </div>
-          </div>
-      </div>
+    <!-- Frontend -->
+    <h3 class="neo-category">Frontend</h3>
+    <div class="neo-row scrollStyleX" appDragScroll>
+      <article
+        class="neo-card"
+        *ngFor="let item of frontEndServices; let i = index"
+      >
+        <div class="neo-glow"></div>
+
+        <div class="neo-icon">
+          <i [class]="frontEndIcons[i]"></i>
+        </div>
+
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.desc }}</p>
+      </article>
+    </div>
+
+    <!-- Backend -->
+    <h3 class="neo-category">Backend</h3>
+    <div class="neo-row scrollStyleX" appDragScroll>
+      <article
+        class="neo-card backend"
+        *ngFor="let item of backEndServices; let i = index"
+      >
+        <div class="neo-glow"></div>
+
+        <div class="neo-icon">
+          <i [class]="backEndIcons[i]"></i>
+        </div>
+
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.desc }}</p>
+      </article>
+    </div>
 
   </div>
-
-  <h5>BackEnd</h5>
-  <div class=" d-flex scrollStyleX" appDragScroll>
-      <div class=" main" *ngFor="let item of backEndServices let i = index">
-          <div class="box">
-            <div class="our-services" >
-              <div class="icon" >
-                <i [ngClass]="up ? 'up ' + backEndIcons[i] : 'down ' + backEndIcons[i]"></i>
-
-
-              </div>
-              <h4 class="mb-2">{{item.title}},,</h4>
-              <p>{{item.desc}}</p>
-          </div>
-          </div>
-      </div>
-
-  </div>
-
-</div>
+</section>

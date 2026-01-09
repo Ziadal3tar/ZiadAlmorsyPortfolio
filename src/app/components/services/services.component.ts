@@ -10,42 +10,34 @@ export class ServicesComponent {
   @Input() languageData:any
 @Input() arabic:any
 
-frontEndIcons:any[]=[
-  'bi bi-speedometer',
-  'fa-solid fa-wand-magic-sparkles',
-  'bi bi-brush-fill',
-  'bi bi-browser-firefox',
-  'bi bi-phone-flip',
-  'fa-solid fa-language',
-  'fa-solid fa-gears',
-]
-backEndIcons:any[]=[
-  'bi bi-hdd-network-fill',
-  'bi bi-database-fill-add',
-  'bi bi-bar-chart-steps',
-  'bi bi-shield-fill-check',
-  'bi bi-rocket-fill',
-  'fa-brands fa-servicestack',
-  'fa-solid fa-clock-rotate-left',
-]
-up:Boolean = false
-frontEndServices:any
-backEndServices:any
-constructor(private LanguageService:LanguageService){
-this.LanguageService.currentLanguageData.subscribe((data:any)=>{
-this.languageData = data
+  frontEndIcons = [
+    'bi bi-speedometer',
+    'fa-solid fa-wand-magic-sparkles',
+    'bi bi-brush-fill',
+    'bi bi-browser-firefox',
+    'bi bi-phone-flip',
+    'fa-solid fa-language',
+    'fa-solid fa-gears',
+  ];
 
-this.frontEndServices = data.services.frontend
-this.backEndServices = data.services.backend
-})
-}
-ngOnInit(): void {
-  this.animate()
-}
-animate(){
+  backEndIcons = [
+    'bi bi-hdd-network-fill',
+    'bi bi-database-fill-add',
+    'bi bi-bar-chart-steps',
+    'bi bi-shield-fill-check',
+    'bi bi-rocket-fill',
+    'fa-brands fa-servicestack',
+    'fa-solid fa-clock-rotate-left',
+  ];
 
-  setTimeout(() => {
-this.up = !this.up
-this.animate()
-  }, 1500);
-}}
+  frontEndServices: any[] = [];
+  backEndServices: any[] = [];
+
+  constructor(private languageService: LanguageService) {
+    this.languageService.currentLanguageData.subscribe((data: any) => {
+      this.languageData = data;
+      this.frontEndServices = data.services.frontend;
+      this.backEndServices = data.services.backend;
+    });
+  }
+}

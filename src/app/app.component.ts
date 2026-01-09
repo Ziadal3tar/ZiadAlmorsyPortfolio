@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'portofolio';
+  title = 'portfolio';
   routeName = '';
   load: Boolean = true
   open: any = false
@@ -20,6 +20,8 @@ export class AppComponent {
       document.documentElement.style.setProperty('--text-color', color);
     });
     this.styleService.bgColor$.subscribe((color) => {
+      console.log(color);
+      
       document.documentElement.style.setProperty('--bg-color', color);
     });
     this.styleService.bgDLbtn$.subscribe((color) => {

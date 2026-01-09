@@ -90,27 +90,47 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   initializeParticles(): void {
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
-        color: { value: this.color },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: this.color,
-          opacity: 0.4,
-          width: 1,
-        },
-        move: { enable: true, speed: 3 },
-      },
-      interactivity: {
-        events: { onhover: { enable: true, mode: 'grab' }, resize: true },
-        modes: { grab: { distance: 180, line_linked: { opacity: 1 } } },
-      },
-      retina_detect: true,
-    });
+particlesJS('particles-js', {
+  particles: {
+    number: {
+      value: 80,
+      density: { enable: true, value_area: 800 }
+    },
+    color: { value: this.color },
+    shape: { type: 'circle' },
+    opacity: {
+      value: 0.25,
+      random: true
+    },
+    size: {
+      value: 3,
+      random: true
+    },
+    line_linked: {
+      enable: false
+    },
+    move: {
+      enable: true,
+      speed: 0.8,
+      direction: 'top',
+      out_mode: 'out'
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: 'repulse' },
+      resize: true
+    },
+    modes: {
+      repulse: {
+        distance: 120,
+        duration: 0.4
+      }
+    }
+  },
+  retina_detect: true
+});
+
+
   }
 }

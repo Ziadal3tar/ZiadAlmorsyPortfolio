@@ -16,23 +16,17 @@ export class ProjectsComponent {
   project: any;
   imageNum: any = 0;
   constructor(private _common: CommonService,private _Router: Router) {}
-  ngOnInit(): void {
+ ngOnInit(): void {
+  this._common.loadProjects().subscribe(projects => {
+    this.projects = [...projects].reverse();
 
-    this._common.loadProjects().subscribe(projects => {
-          
-        const arrayJSON = JSON.stringify(projects);
-        localStorage.setItem('allProjects', arrayJSON);
-        if (projects.projects) {
-          
-          this.projects = projects.projects.reverse();
-        }else{
-          this.projects = projects
-          
-        }
+    localStorage.setItem(
+      'allProjects',
+      JSON.stringify(this.projects)
+    );
   });
+}
 
- 
-  }
   active(data: any, name: any) {
 
     let lis: any = document.getElementById('ul')?.children;

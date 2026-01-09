@@ -47,6 +47,7 @@ export class LanguageService {
       home: 'مشاريعي',
       demo: 'تجريبي',
       details: 'تفاصيل',
+      curated:'مجموعة مختارة من أفضل أعمالي'
     },
     services: {
       ServicesOffer:'خدمات اقدمها',
@@ -173,6 +174,8 @@ export class LanguageService {
       home: 'Home',
       demo: 'demo',
       details: 'details',
+            curated:'A curated selection of my best work'
+
     },
     services: {
       ServicesOffer:'Services I offer',

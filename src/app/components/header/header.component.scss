@@ -1,125 +1,107 @@
 section {
   overflow: hidden;
+  // background: var(--bg-color);
 
   padding-top: 60px;
 
-  .half-1 {
-    height: 100vh;
-    @media (max-width: 1000px) {height: auto!important;}
+ .half-1 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    @media (min-width: 0px) and (max-width: 500px) {
-
-      height: 70vh;
-    }
-
-    .par-1 {
-      position: relative;
-      font-size: 80px;
-      font-weight: 900;
-      opacity: 1;
-
-      @media (min-width: 0px) and (max-width: 500px) {
-
-        font-size: 35px !important;
-      }
-
-      &:after {
-        content: '';
-        width: 80%;
-        height: 2px;
-        position: absolute;
-        top: 50%;
-        left: 100%;
-        margin: 0 10px;
-        background: #000000;
-      }
-    }
-
-    .par-2 {
-      font-size: 90px;
-      font-weight: 900;
-      white-space: nowrap;
-      line-height: 70px;
-
-      // 769
-      @media (min-width: 971px) and (max-width: 1250px) {
-        font-size: 66px !important;
-      }
-
-      @media (min-width: 500px) and (max-width: 971px) {
-        font-size: 66px !important;
-      }
-
-      @media (min-width: 300px) and (max-width: 500px) {
-
-        font-size: 50px !important;
-      }
-
-      @media (min-width: 0px) and (max-width: 300px) {
-
-        font-size: 25px !important;
-      }
-
-
-
-      @keyframes back {
-        100% {
-          background-position: 2000px 0;
-        }
-      }
-    }
-
-
-    .par-3 {
-      font-size: 32px;
-      font-weight: 300;
-      white-space: nowrap;
-
-      @media (min-width: 250px) and (max-width: 460px) {
-        font-size: 16px !important;
-      }
-
-
-    }
-
-    div {
-      padding-top: 10px;
-      // @media (min-width: 310px) and (max-width: 350px) {}
-      @media (min-width: 1000px) {
-        width: 300px;
-      }
-      @media (max-width: 1000px) {
-        width: 300px;
-      }
-      .btn-1 {
-        background-color: #e7902e;
-        white-space: nowrap;
-        font-weight: 500;
-        border-radius: 500px !important;
-
-        &:hover {
-          background-color: #fff;
-          color: #e7902e !important;
-
-        }
-      }
-
-      .btn-2 {
-        // background-color: #fff;
-        background-color:var(--text-color);
-        color: #e7902e !important;
-        font-weight: 500;
-        border-radius: 500px !important;
-
-        &:hover {
-          background-color: #e7902e;
-          color: #fff !important;
-
-        }
-      }
-
-    }
+  @media (max-width: 1000px) {
+    min-height: auto;
+    padding: 80px 0;
   }
+}
+
+/* Container */
+.hero-text {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Name */
+.hero-name {
+  font-size: 88px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--text-color);
+
+  span {
+    color: #e7902e;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 44px;
+  }
+}
+
+/* Roles */
+.hero-roles {
+  font-size: 28px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  min-height: 40px;
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
+}
+
+/* Actions */
+.hero-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  letter-spacing: 0.5px;
+}
+
+/* Primary */
+.btn-primary {
+  background: linear-gradient(135deg, #e7902e, #fbbf24);
+  color: #020617;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(231, 144, 46, 0.45);
+  }
+}
+
+/* Secondary */
+.btn-secondary {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
 
   .half-2 {
     height: 100%;

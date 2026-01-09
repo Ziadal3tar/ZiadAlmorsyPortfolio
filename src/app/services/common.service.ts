@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,28 +12,30 @@ export class CommonService {
   // baseUrl4EV: any = 'http://localhost:3000/EV';
   constructor(private _http: HttpClient) {}
 
-  private projectsSubject = new BehaviorSubject<any[] | null>(null);
-  projects$ = this.projectsSubject.asObservable();
+private projectsSubject = new BehaviorSubject<any[]>([]);
+projects$ = this.projectsSubject.asObservable();
 
+loadProjects(): Observable<any[]> {
 
- loadProjects(): Observable<any> {
-    // 🟢 لو الداتا موجودة → ما تناديش API
-    if (this.projectsSubject.value) {
-      return this.projects$;
-    }
-
-    // 🔵 أول مرة بس
-    return this.getAllProjects().pipe(
-      tap((res: any) => {
-        this.projectsSubject.next(res.projects);
-      })
-    );
+  // 🟢 لو الداتا موجودة في الذاكرة
+  if (this.projectsSubject.value.length) {
+    console.log('FROM CACHE', this.projectsSubject.value);
+    return this.projects$;
   }
- getProjectById(id: string) {
 
-  
-    return this.projectsSubject.value?.find(p => p._id === id);
-  }
+  // 🔵 أول مرة فقط
+  return this.getAllProjects().pipe(
+    tap((res: any) => {
+      console.log('FROM API', res.projects);
+      this.projectsSubject.next(res.projects);
+    }),
+    map((res: any) => res.projects) // 👈 دايمًا Array
+  );
+}
+
+getProjectById(id: string) {
+  return this.projectsSubject.value.find(p => p._id === id);
+}
   // ✅ فتح الصفحة بكلمة مرور
   open(password: string): Observable<any> {
     return this._http.get(`${this.baseUrl}/open/${password}`);
