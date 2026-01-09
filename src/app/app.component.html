@@ -1,5 +1,5 @@
 
-<app-nav *ngIf="routeName != 'open'"></app-nav>
+<app-nav *ngIf="routeName == ''"></app-nav>
 <router-outlet></router-outlet>
 <section *ngIf="!load" id="load">
 <img src="./assets/image/Screenshot_2024-01-24_164803-removebg-preview.png" alt="" srcset="">

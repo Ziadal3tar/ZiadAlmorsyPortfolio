@@ -1,0 +1,110 @@
+.project-details {
+  font-family: 'Inter', sans-serif;
+    color: var(--text-color) !important;
+
+}
+
+/* HERO */
+.hero {
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: background-image 0.4s ease;
+
+  .overlay {
+    inset: 0;
+    position: absolute;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.2)
+    );
+    padding: clamp(24px, 5vw, 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--text-color) !important;
+
+
+    h1 {
+      font-size: clamp(26px, 5vw, 48px);
+      margin-bottom: 12px;
+    }
+
+    p {
+      max-width: 700px;
+      opacity: 0.9;
+      font-size: clamp(14px, 2.5vw, 18px);
+    }
+
+    .actions {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      a {
+        padding: 12px 24px;
+        border-radius: 8px;
+  background-color: var(--bg-color);
+  color: var(--text-color) !important;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:last-child {
+          background: transparent;
+          border: 1px solid #fff;
+  color: var(--text-color) !important;
+        }
+      }
+    }
+  }
+}
+
+/* INFO */
+.info {
+  padding: clamp(32px, 6vw, 80px);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* GALLERY */
+.gallery {
+  padding: clamp(24px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    &.active {
+      opacity: 1;
+      outline: 3px solid #e7902e;
+    }
+  }
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+  .gallery img {
+    height: 100px;
+  }
+}

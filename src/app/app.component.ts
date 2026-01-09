@@ -11,10 +11,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'portofolio';
-   routeName = '';
-  load:Boolean = true
-  open:any = false
-  constructor(public _common: CommonService,private styleService: StyleService,private _language:LanguageService,public router: Router) {
+  routeName = '';
+  load: Boolean = true
+  open: any = false
+  constructor(public _common: CommonService, private styleService: StyleService, private _language: LanguageService, public router: Router) {
+
     this.styleService.textColor$.subscribe((color) => {
       document.documentElement.style.setProperty('--text-color', color);
     });
@@ -27,15 +28,16 @@ export class AppComponent {
     this._language.updateLanguage(false)
     this.router.events.subscribe(() => {
       const url = this.router.url;
-      this.routeName = url.includes('/open/') ? 'open' : '';
+      if (url.includes('/open/')) {
+        this.routeName = 'open'
+      } else if (url.includes('/projects/')) {
+        this.routeName = 'projects'
 
+      } else {
+        this.routeName = ''
+      }
     });
-    console.log(this.routeName);
 
-//   ngOnInit(): void {
-// setTimeout(() => {
-//   this.load = true
-// }, 2200);
-//   }
-}
+
+  }
 }

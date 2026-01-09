@@ -16,7 +16,12 @@ const routes: Routes = [
 
   // ✅ مسار محمي
   { path: 'open/:password', canActivate: [openControlGuard], component: ControlComponent },
-
+  {
+    path: 'projects/:id',
+    loadComponent: () =>
+      import('./components/details/details.component')
+        .then(m => m.DetailsComponent)
+  },
   // ❌ مفيش داعي لمجرد "control" لو هتستخدم الباسورد
   { path: '**', redirectTo: '/' },
 ];

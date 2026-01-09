@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
 import 'hammerjs';
@@ -9,19 +10,28 @@ import 'hammerjs';
 export class ProjectsComponent {
   @Input() languageData:any
 @Input() arabic:any
+
   filter: String = 'all';
   projects: any[] = [];
   project: any;
   imageNum: any = 0;
-  constructor(private _common: CommonService,private renderer: Renderer2) {}
+  constructor(private _common: CommonService,private _Router: Router) {}
   ngOnInit(): void {
-    this._common.getAllProjects().subscribe((data: any) => {
-      console.log(data);
 
-      this.projects = data.projects.reverse();
-      const arrayJSON = JSON.stringify(data.project);
-      localStorage.setItem('allProjects', arrayJSON);
-    });
+    this._common.loadProjects().subscribe(projects => {
+          
+        const arrayJSON = JSON.stringify(projects);
+        localStorage.setItem('allProjects', arrayJSON);
+        if (projects.projects) {
+          
+          this.projects = projects.projects.reverse();
+        }else{
+          this.projects = projects
+          
+        }
+  });
+
+ 
   }
   active(data: any, name: any) {
 
@@ -48,21 +58,24 @@ this.projects = storedArray
   }
 
   details(id: any) {
-    let div: any = document.getElementById(`project${id}`);
-    var translateXValue1 = '200%';
-    var translateXValue2 = '0%';
-    var translateXValue3 = '-200%';
+    
+    this._Router.navigate(['/projects', id])
+    // let div: any = document.getElementById(`project${id}`);
+    // var translateXValue1 = '200%';
+    // var translateXValue2 = '0%';
+    // var translateXValue3 = '-200%';
 
-    if (div.classList.contains('added')) {
-      div.classList.remove('added');
+    // if (div.classList.contains('added')) {
+    //   div.classList.remove('added');
 
-      div.children[0].style.transform = 'translateX(' + translateXValue2 + ')';
-      div.children[2].style.transform = 'translateX(' + translateXValue3 + ')';
-    } else {
-      div.classList.add('added');
-      div.children[0].style.transform = 'translateX(' + translateXValue1 + ')';
-      div.children[2].style.transform = 'translateX(' + translateXValue2 + ')';
-    }
+    //   div.children[0].style.transform = 'translateX(' + translateXValue2 + ')';
+    //   div.children[2].style.transform = 'translateX(' + translateXValue3 + ')';
+    // } else {
+    //   div.classList.add('added');
+    //   div.children[0].style.transform = 'translateX(' + translateXValue1 + ')';
+    //   div.children[2].style.transform = 'translateX(' + translateXValue2 + ')';
+    // }
+
   }
 
   changeImg(i: any) {

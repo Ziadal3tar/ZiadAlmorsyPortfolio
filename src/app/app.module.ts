@@ -21,6 +21,7 @@ import { RotateTextDirective } from './components/rotate-text.directive';
 import { ParticlesService } from './services/particles.service';
 import { SkillsComponent } from './components/skills/skills.component';
 import { DragScrollDirective } from './services/drag-scroll.directive';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [

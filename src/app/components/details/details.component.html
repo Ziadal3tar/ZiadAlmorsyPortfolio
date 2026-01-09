@@ -1,0 +1,45 @@
+<section *ngIf="project as p" class="project-details">
+
+  <!-- HERO -->
+  <section
+    class="hero"
+    [style.backgroundImage]="'url(' + activeHeroImage + ')'"
+  >
+    <div class="overlay">
+      <span class="badge">{{ p.types?.[0] }}</span>
+      <h1>{{ p.name }}</h1>
+      <p>{{ p.description }}</p>
+
+      <div class="actions">
+        <a [href]="p.link" target="_blank">Live Demo</a>
+        <a [href]="p.code" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="info">
+    <div class="left">
+      <h2>Project Overview</h2>
+      <p>{{ p.description }}</p>
+    </div>
+
+    <div class="right">
+      <div class="meta">
+        <span>Technologies : </span>
+        <strong>{{ p.technologies.join(', ') }}</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <img
+      *ngFor="let img of p.images"
+      [src]="img"
+      (click)="setHeroImage(img)"
+      [class.active]="img === activeHeroImage"
+    />
+  </section>
+
+</section>

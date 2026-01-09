@@ -12,7 +12,6 @@ export const openControlGuard: CanActivateFn = (route, state) => {
 
   return common.open(password).pipe(
     map((response: any) => {
-      console.log(response);
 
       if (response.open) {
         // ✅ الباسوورد صحيحة → نسمح بالدخول

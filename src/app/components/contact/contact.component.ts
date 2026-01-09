@@ -28,7 +28,6 @@ export class ContactComponent {
       this.loading = !this.loading
       this.emailError = '';
       this._common.sendEmail(data).subscribe((data: any) => {
-        console.log(data);
         if (data.message == 'sended') {
           this.senderForm.reset()
           this.loading = !this.loading
