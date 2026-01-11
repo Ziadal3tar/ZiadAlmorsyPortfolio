@@ -43,8 +43,8 @@ export class LanguageService {
       meanStackDeveloper: 'MEANStack Developer.',
     },
     project: {
-      projects: 'الرئيسية',
-      home: 'مشاريعي',
+      projects: 'مشاريعي',
+      home: 'الرئيسية',
       demo: 'تجريبي',
       details: 'تفاصيل',
       curated:'مجموعة مختارة من أفضل أعمالي'
@@ -144,9 +144,9 @@ export class LanguageService {
     header: {
       firstName: 'Ziad',
       lastName: 'Almorsy',
-      myProject: 'MY PROJECT',
+      myProject: 'MY PROJECTS',
       contact: 'CONTACT',
-      im: "i'm",
+      im: "I'm",
       Freelancer: 'Freelancer.',
       WebDeveloper: 'Web developer.',
       FrontendDeveloper: 'Frontend developer.',
