@@ -80,7 +80,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   toPdf(): void {
     window.open(
-      'https://drive.google.com/file/d/1hXe289kzs4nuuvKnqqHfyAooxmKF9efM/view?usp=sharing',
+      'https://drive.google.com/file/d/1kj3odR6opX185WmFKxaj4h_Fr6DODz85/view?usp=sharing',
       '_blank'
     );
   }
